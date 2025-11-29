@@ -15,8 +15,7 @@ export interface Tweak {
   subsections: Subsection[];
 }
 
-export const gpuTweaks = {
-  en: [
+export const gpuTweaks = [
     {
       id: "gpu-scheduling",
       name: "Hardware-Accelerated GPU Scheduling",
@@ -190,8 +189,7 @@ export const gpuTweaks = {
         },
       ],
     },
-  ] as Tweak[],
-  es: [
+] as Tweak[];
     {
       id: "gpu-scheduling",
       name: "Planificación Acelerada de GPU (Hardware-Accelerated GPU Scheduling)",
@@ -373,5 +371,3 @@ export const gpuTweaks = {
         },
       ],
     },
-  ] as Tweak[],
-};

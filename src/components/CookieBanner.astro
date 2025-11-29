@@ -1,9 +1,4 @@
 ---
-import { useTranslations } from "@/i18n/utils";
-import { languageList } from "@/i18n/ui";
-
-const currentLang = Astro.currentLocale || "en";
-const t = useTranslations(currentLang as keyof typeof languageList);
 ---
 
 <div
@@ -18,13 +13,13 @@ const t = useTranslations(currentLang as keyof typeof languageList);
         <div class="text-xs text-gray-600 dark:text-gray-300 leading-relaxed">
           <span
             class="font-bold text-gray-900 dark:text-white block md:inline mb-1 md:mb-0 mr-1"
-            >{t("cookies.title")}:</span
+            >WE USE COOKIES:</span
           >
-          {t("cookies.message")}
+          We use our own and third-party cookies to improve your browsing experience, analyze site traffic, and personalize content. You can accept all cookies, reject them, or customize your preferences.
           <a
             href="#"
             class="text-[#2563EB] hover:underline font-bold ml-1 whitespace-nowrap"
-            >{t("cookies.more_info")}</a
+            >More information</a
           >
         </div>
       </div>
@@ -37,19 +32,19 @@ const t = useTranslations(currentLang as keyof typeof languageList);
           id="accept-cookies"
           class="px-4 py-1.5 bg-[#2563EB] hover:bg-[#1D4ED8] text-white font-bold rounded-md transition-colors text-xs flex-1 md:flex-none text-center shadow-sm"
         >
-          {t("cookies.accept_all")}
+          Accept all
         </button>
         <button
           id="reject-cookies"
           class="px-4 py-1.5 bg-gray-100 dark:bg-white/5 hover:bg-gray-200 dark:hover:bg-white/10 text-gray-700 dark:text-gray-300 font-bold rounded-md transition-colors text-xs flex-1 md:flex-none text-center border border-gray-200 dark:border-white/5"
         >
-          {t("cookies.reject_all")}
+          Reject all
         </button>
         <button
           id="customize-cookies"
           class="px-4 py-1.5 border border-gray-200 dark:border-white/10 text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-white/5 font-bold rounded-md transition-colors text-xs flex-1 md:flex-none text-center"
         >
-          {t("cookies.customize")}
+          Customize
         </button>
       </div>
     </div>

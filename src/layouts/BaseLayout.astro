@@ -5,7 +5,6 @@ import Footer from "@/components/Footer.astro";
 import SeoMeta from "@/components/SeoMeta.astro";
 import AccessibilityToolbar from "@/components/AccessibilityToolbar.astro";
 import CookieBanner from "@/components/CookieBanner.astro";
-import { languageList } from "@/i18n/ui";
 
 interface Props {
   title?: string;
@@ -25,11 +24,10 @@ const {
   noindex = false,
 } = Astro.props;
 
-const currentLang = Astro.currentLocale || "en";
 ---
 
 <!doctype html>
-<html lang={currentLang} class="scroll-smooth">
+<html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />

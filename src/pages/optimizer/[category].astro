@@ -2,8 +2,6 @@
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import TweakSection from "@/components/TweakSection.astro";
 
-import { languageList } from "@/i18n/ui";
-import { useTranslations } from "@/i18n/utils";
 import { networkTweaks } from "@/data/networkTweaks";
 import { memoryTweaks } from "@/data/memoryTweaks";
 import { gpuTweaks } from "@/data/gpuTweaks";
@@ -25,9 +23,6 @@ export function getStaticPaths() {
   }));
 }
 
-const currentLang = Astro.currentLocale || "en";
-const t = useTranslations(currentLang as keyof typeof languageList);
-
 const { category } = Astro.params;
 const categoryColors_current =
   CATEGORY_COLORS[category as keyof typeof CATEGORY_COLORS];
@@ -37,33 +32,45 @@ if (!category || !categoryColors_current || !categoryIcon) {
   return new Response("Not found", { status: 404 });
 }
 
-// Obtener los datos de tweaks según la categoría
-let tweaksData: any = null;
+// Category title mapping
+const categoryTitles: Record<string, string> = {
+  network: "Network",
+  memory: "Memory",
+  gpu: "GPU",
+  windows_features: "Windows Features",
+  firewall_security: "Firewall and Security",
+  nagle_algorithm: "Nagle Algorithm",
+  network_throttling: "Network Throttling",
+  system_responsiveness: "System Responsiveness",
+  latency_timers: "Latency and Timers",
+};
+
+// Get tweaks data according to category
+let tweaks: any = null;
 if (category === "network") {
-  tweaksData = networkTweaks;
+  tweaks = networkTweaks;
 } else if (category === "memory") {
-  tweaksData = memoryTweaks;
+  tweaks = memoryTweaks;
 } else if (category === "gpu") {
-  tweaksData = gpuTweaks;
+  tweaks = gpuTweaks;
 } else if (category === "windows_features") {
-  tweaksData = windowsFeaturesTweaks;
+  tweaks = windowsFeaturesTweaks;
 } else if (category === "firewall_security") {
-  tweaksData = firewallSecurityTweaks;
+  tweaks = firewallSecurityTweaks;
 } else if (category === "nagle_algorithm") {
-  tweaksData = nagleAlgorithmTweaks;
+  tweaks = nagleAlgorithmTweaks;
 } else if (category === "network_throttling") {
-  tweaksData = networkThrottlingTweaks;
+  tweaks = networkThrottlingTweaks;
 } else if (category === "system_responsiveness") {
-  tweaksData = systemResponsivenessTweaks;
+  tweaks = systemResponsivenessTweaks;
 } else if (category === "latency_timers") {
-  tweaksData = latencyAndTimersTweaks;
+  tweaks = latencyAndTimersTweaks;
 }
 
-const tweaks = currentLang === "en" ? tweaksData?.en : tweaksData?.es;
-const categoryTitle = t(`optimizer.sections.${category}` as any);
+const categoryTitle = categoryTitles[category] || category;
 ---
 
-<BaseLayout title={`${categoryTitle} - ${t("optimizer.title")} - CodeXtremeOS`}>
+<BaseLayout title={`${categoryTitle} - Win Optimizer - CodeXtremeOS`}>
   <!-- Hero Section -->
   <section
     class="relative min-h-[40vh] flex items-center justify-center overflow-hidden bg-[#0a0a0a]"
@@ -89,7 +96,7 @@ const categoryTitle = t(`optimizer.sections.${category}` as any);
           class="group inline-flex items-center gap-2 text-gray-400 hover:text-white mb-8 transition-colors px-4 py-2 rounded-full bg-white/5 hover:bg-white/10 border border-white/5 hover:border-white/10 backdrop-blur-sm"
         >
           <span class="group-hover:-translate-x-1 transition-transform">←</span>
-          {t("optimizer.title")}
+          Win Optimizer
         </a>
 
         <h1 class="text-6xl md:text-7xl font-bold mb-8 tracking-tight">
@@ -103,7 +110,7 @@ const categoryTitle = t(`optimizer.sections.${category}` as any);
         <p
           class="text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto leading-relaxed"
         >
-          {t("optimizer.hero_description")}
+          Advanced Windows system optimization
         </p>
       </div>
     </div>

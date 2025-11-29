@@ -12,28 +12,15 @@ const baseUrl = 'https://www.codextreme.me';
 
 export const GET: APIRoute = () => {
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${pages.map(page => {
-  const englishUrl = `${baseUrl}${page.path}`;
-  const spanishUrl = `${baseUrl}/es${page.path}`;
+  const url = `${baseUrl}${page.path}`;
   
   return `  <url>
-    <loc>${englishUrl}</loc>
+    <loc>${url}</loc>
     <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>${page.priority}</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="${englishUrl}"/>
-    <xhtml:link rel="alternate" hreflang="es" href="${spanishUrl}"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="${englishUrl}"/>
-  </url>
-  <url>
-    <loc>${spanishUrl}</loc>
-    <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>${page.priority}</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="${englishUrl}"/>
-    <xhtml:link rel="alternate" hreflang="es" href="${spanishUrl}"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="${englishUrl}"/>
   </url>`;
 }).join('\n')}
 </urlset>`;

@@ -7,44 +7,16 @@ interface Props {
 }
 
 const { title, description, canonical, noindex = false } = Astro.props;
-const currentLang = Astro.currentLocale || "en";
 const currentUrl = new URL(Astro.request.url);
 
-// Construir URL canónica correcta
+// Build canonical URL
 let canonicalUrl: string;
 if (canonical) {
   canonicalUrl = canonical;
 } else {
-  let pathname = currentUrl.pathname;
-  
-  // Si es español, quitar el prefijo /es para construir la versión base
-  if (currentLang === "es" && pathname.startsWith("/es")) {
-    pathname = pathname.substring(3) || "/";
-  }
-  
-  // Construir la URL canónica según el idioma actual
-  if (currentLang === "en") {
-    canonicalUrl = `https://www.codextreme.me${pathname}`;
-  } else {
-    canonicalUrl = `https://www.codextreme.me/es${pathname}`;
-  }
+  const pathname = currentUrl.pathname;
+  canonicalUrl = `https://www.codextreme.me${pathname}`;
 }
-
-// Funciones para generar URLs alternativas
-const getEnglishUrl = () => {
-  if (currentLang === "es") {
-    return canonicalUrl.replace("/es", "") || "https://www.codextreme.me/";
-  }
-  return canonicalUrl;
-};
-
-const getSpanishUrl = () => {
-  if (currentLang === "en") {
-    const pathname = new URL(canonicalUrl).pathname;
-    return `https://www.codextreme.me/es${pathname}`;
-  }
-  return canonicalUrl;
-};
 ---
 
 <!-- Canonical URL -->
@@ -57,10 +29,6 @@ const getSpanishUrl = () => {
   <meta name="robots" content="index, follow" />
 )}
 
-<!-- Hreflang para idiomas -->
-<link rel="alternate" hreflang="es" href={getSpanishUrl()} />
-<link rel="alternate" hreflang="en" href={getEnglishUrl()} />
-<link rel="alternate" hreflang="x-default" href={getEnglishUrl()} />
 
 <!-- Open Graph URLs -->
 <meta property="og:url" content={canonicalUrl} />

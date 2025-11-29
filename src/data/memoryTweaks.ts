@@ -1,5 +1,4 @@
-export const memoryTweaks = {
-  es: [
+export const memoryTweaks = [
     {
       id: "disable-compression",
       name: "🗜️ Desactivar Compresión de RAM",
@@ -151,8 +150,6 @@ export const memoryTweaks = {
         },
       ],
     },
-  ],
-  en: [
     {
       id: "disable-compression",
       name: "🗜️ Disable RAM Compression",
@@ -302,5 +299,4 @@ export const memoryTweaks = {
         },
       ],
     },
-  ],
-};
+];

@@ -2,65 +2,59 @@
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import SupportNotice from "@/components/SoporteNoticias.astro";
 
-import { languageList } from "@/i18n/ui";
-import { useTranslations } from "@/i18n/utils";
-
-const currentLang = Astro.currentLocale || "en";
-const translateLabels = useTranslations(currentLang as keyof typeof languageList);
-
 const guides = [
   {
-    title: "guides.guide1.title",
-    description: "guides.guide1.description",
+    title: "Create Your Own Optimized ISO",
+    description: "Complete guide to create and customize your optimized Windows ISO",
     link: "https://www.youtube.com/watch?v=fqTt4DarrOU",
     color: "from-orange-500 to-red-500",
     icon: "🛠️",
   },
   {
-    title: "guides.guide2.title",
-    description: "guides.guide2.description",
+    title: "Mega Optimization Pack",
+    description: "Optimize your PC by 500% with this mega pack",
     link: "https://www.youtube.com/watch?v=dnE5RRnIvKI",
     color: "from-purple-500 to-indigo-500",
     icon: "⚡",
   },
   {
-    title: "guides.guide3.title",
-    description: "guides.guide3.description",
+    title: "Personalization",
+    description: "Make your Windows look great without resource consumption",
     link: "https://www.youtube.com/watch?v=vqYixOxhdgc",
     color: "from-yellow-400 to-amber-500",
     icon: "🎨",
   },
   {
-    title: "guides.guide4.title",
-    description: "guides.guide4.description",
+    title: "Hidden Policies",
+    description: "Enable hidden policies to get the most out of your performance",
     link: "https://www.youtube.com/watch?v=WfpFgQdWT20&list=PL0rDzzHg4fUli-ciiihzmJnr-scB0FuY8",
     color: "from-green-500 to-emerald-600",
     icon: "🔧",
   },
   {
-    title: "guides.guide5.title",
-    description: "guides.guide5.description",
+    title: "Resource Optimization",
+    description: "Learn to reduce CPU and RAM usage to maximize the performance of your ISO.",
     link: "https://www.youtube.com/watch?v=5Q8CHJxlil4",
     color: "from-cyan-400 to-blue-500",
     icon: "🚀",
   },
   {
-    title: "guides.guide6.title",
-    description: "guides.guide6.description",
+    title: "Clean Installation",
+    description: "Discover how to set up automatic tasks after installation to keep your system optimized.",
     link: "https://windowsforum.com/threads/step-by-step-guide-how-to-do-a-clean-install-of-windows-11.264029/",
     color: "from-orange-600 to-red-600",
     icon: "🤖",
   },
   {
-    title: "guides.guide7.title",
-    description: "guides.guide7.description",
+    title: "Increase Performance",
+    description: "Discover how to increase the performance of your Windows 11 with these tips and tricks.",
     link: "https://www.youtube.com/watch?v=iBiNfa32AnE",
     color: "from-fuchsia-500 to-pink-600",
     icon: "🔍",
   },
   {
-    title: "guides.guide8.title",
-    description: "guides.guide8.description",
+    title: "The Best Software",
+    description: "Discover the best software for Windows 10/11 in 2025.",
     link: "https://alternativeto.net/",
     color: "from-indigo-500 to-blue-600",
     icon: "💻",
@@ -68,7 +62,7 @@ const guides = [
 ];
 ---
 
-<BaseLayout title={translateLabels("guides.meta_title")}>
+<BaseLayout title="Guides and Tutorials - CodeXtremeOS">
   <!-- Hero Section -->
   <section class="relative min-h-[40vh] flex items-center justify-center overflow-hidden bg-white dark:bg-[#141414]">
     <!-- Background Effects -->
@@ -81,11 +75,11 @@ const guides = [
       <div class="max-w-4xl mx-auto">
         <h1 class="text-6xl md:text-7xl font-bold mb-8 tracking-tight">
           <span class="bg-clip-text text-transparent bg-gradient-to-r from-[#FF6F61] to-[#6B5B95] drop-shadow-2xl">
-            {translateLabels("guides.title")}
+            CodeXtreme Guides
           </span>
         </h1>
         <p class="text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto leading-relaxed backdrop-blur-sm bg-white/5 p-6 rounded-2xl border border-white/10">
-          {translateLabels("guides.description")}
+          🚀 Master optimization with our step-by-step guides.
         </p>
       </div>
     </div>
@@ -118,11 +112,11 @@ const guides = [
               </div>
 
               <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-200 transition-colors">
-                {translateLabels(guide.title as any)}
+                {guide.title}
               </h3>
 
               <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-4 flex-grow">
-                {translateLabels(guide.description as any)}
+                {guide.description}
               </p>
 
               <div class="flex items-center gap-2 text-[10px] font-medium text-gray-500 dark:text-white/50 group-hover:text-gray-800 dark:group-hover:text-white/80 uppercase tracking-wider">

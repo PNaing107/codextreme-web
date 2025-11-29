@@ -1,30 +1,11 @@
 ---
-import { getRelativeLocaleUrl } from "astro:i18n";
-import { languageList } from "@/i18n/ui";
-import { useTranslations } from "@/i18n/utils";
-
-const getPathWithoutLocale = (path: string): string => {
-  const segments = path.split("/").filter(Boolean);
-  const isLocaleSegment = ["en", "es"].includes(segments[0]);
-  const pathWithoutLocale = isLocaleSegment
-    ? segments.slice(1).join("/")
-    : segments.join("/");
-  return pathWithoutLocale || "/";
-};
-
-const currentPathWithoutLocale = getPathWithoutLocale(Astro.url.pathname);
-const currentLang = Astro.currentLocale || "en";
-const translateLabels = useTranslations(
-  currentLang as keyof typeof languageList
-);
-
 const linkClasses =
   "flex items-center px-3 py-2 text-sm font-medium rounded-lg transition-all duration-300 hover:bg-white/5 group";
 
 const navLinks = [
   {
-    href: getRelativeLocaleUrl(currentLang, "/"),
-    label: translateLabels("nav.home"),
+    href: "/",
+    label: "Home",
     icon: `<svg class="w-5 h-5 mr-2 text-[#FF6F61] opacity-70 group-hover:opacity-100" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
           </svg>`,
@@ -32,40 +13,40 @@ const navLinks = [
   },
 
   {
-    href: getRelativeLocaleUrl(currentLang, "guias"),
-    label: translateLabels("nav.guides"),
+    href: "/guias",
+    label: "Guides",
     icon: `<svg class="w-5 h-5 mr-2 text-[#6B5B95] opacity-70 group-hover:opacity-100" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 003-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
           </svg>`,
     hoverText: "hover:text-[#6B5B95]",
   },
   {
-    href: getRelativeLocaleUrl(currentLang, "herramientas"),
-    label: translateLabels("nav.tools"),
+    href: "/herramientas",
+    label: "Tools",
     icon: `<svg class="w-5 h-5 mr-2 text-[#4CAF50] opacity-70 group-hover:opacity-100" fill="none" viewBox="0 0 24 24" stroke="currentColor">
            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l.637 1.958a1.724 1.724 0 001.616 1.196h2.045c.969 0 1.371 1.24.588 1.81l-1.657 1.2a1.724 1.724 0 000 2.936l1.657 1.2c.783.57.38 1.81-.588 1.81h-2.045a1.724 1.724 0 00-1.616 1.196l-.637 1.958c-.3.921-1.603.921-1.902 0l-.637-1.958a1.724 1.724 0 00-1.616-1.196H6.807c-.969 0-1.371-1.24-.588-1.81l1.657-1.2a1.724 1.724 0 000-2.936l-1.657-1.2c-.783-.57-.38-1.81.588-1.81h2.045a1.724 1.724 0 001.616-1.196l.637-1.958z" />
          </svg>`,
     hoverText: "hover:text-[#4CAF50]",
   },
   {
-    href: getRelativeLocaleUrl(currentLang, "software"),
-    label: translateLabels("nav.software"),
+    href: "/software",
+    label: "Software",
     icon: `<svg class="w-5 h-5 mr-2 text-[#1b357e] opacity-70 group-hover:opacity-100" fill="none" stroke="currentColor" viewBox="0 0 24 24">
            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4a4 4 0 014 4v8a4 4 0 01-4 4H8a4 4 0 01-4-4V8a4 4 0 014-4h8m0 12h4m-4 0l-4-4m4 4l4-4"></path>
          </svg>`,
     hoverText: "hover:text-[#1b357e]",
   },
   {
-    href: getRelativeLocaleUrl(currentLang, "descargas"),
-    label: translateLabels("nav.download"),
+    href: "/descargas",
+    label: "Downloads",
     icon: `<svg class="w-5 h-5 mr-2 text-[#FFD700] opacity-70 group-hover:opacity-100" fill="none" stroke="currentColor" viewBox="0 0 24 24">
            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
          </svg>`,
     hoverText: "hover:text-[#FFD700]",
   },
   {
-    href: getRelativeLocaleUrl(currentLang, "optimizer"),
-    label: translateLabels("nav.optimizer"),
+    href: "/optimizer",
+    label: "Win Optimizer",
     icon: `<svg class="w-5 h-5 mr-2 text-[#00D9FF] opacity-70 group-hover:opacity-100" fill="none" stroke="currentColor" viewBox="0 0 24 24">
            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
@@ -88,7 +69,7 @@ const navLinks = [
 >
   <div class="container mx-auto flex justify-between items-center px-4 py-3">
     <a
-      href={getRelativeLocaleUrl(currentLang, "/")}
+      href="/"
       class="flex items-center space-x-2 group"
     >
       <span
@@ -136,59 +117,10 @@ const navLinks = [
         </svg>
       </button>
 
-      <div class="relative group">
-        <button
-          class="p-2 rounded-xl bg-gray-100 dark:bg-white/5 border border-gray-200 dark:border-white/10 hover:bg-gray-200 dark:hover:bg-white/10 transition-all duration-300 flex items-center gap-2 group-hover:border-gray-300 dark:group-hover:border-white/20"
-          aria-label="Cambiar idioma"
-        >
-          <span
-            class="text-sm font-medium uppercase text-gray-600 dark:text-gray-300 group-hover:text-gray-900 dark:group-hover:text-white transition-colors"
-            >{currentLang}</span
-          >
-          <svg
-            class="w-4 h-4 text-gray-500 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white transition-colors"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M19 9l-7 7-7-7"></path>
-          </svg>
-        </button>
-
-        <div
-          class="absolute right-0 top-full mt-2 w-32 bg-white dark:bg-[#1A1A1A] border border-gray-200 dark:border-white/10 rounded-xl shadow-xl backdrop-blur-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 overflow-hidden z-50"
-        >
-          <ul class="py-1">
-            {
-              Object.entries(languageList).map(
-                ([langCode, langName]) =>
-                  currentLang !== langCode && (
-                    <li>
-                      <a
-                        href={getRelativeLocaleUrl(
-                          langCode as any,
-                          currentPathWithoutLocale
-                        )}
-                        class="block px-4 py-2 text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/5 transition-colors"
-                      >
-                        {langName}
-                      </a>
-                    </li>
-                  )
-              )
-            }
-          </ul>
-        </div>
-      </div>
-
       <button
         id="theme-toggle"
         class="p-2 rounded-xl bg-gray-100 dark:bg-white/5 border border-gray-200 dark:border-white/10 hover:bg-gray-200 dark:hover:bg-white/10 transition-all duration-300 relative group hover:border-gray-300 dark:hover:border-white/20"
-        aria-label="Cambiar tema"
+        aria-label="Toggle theme"
       >
         <div class="flex items-center justify-center w-6 h-6">
           <span

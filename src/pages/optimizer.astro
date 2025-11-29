@@ -2,19 +2,27 @@
 
 import BaseLayout from "@/layouts/BaseLayout.astro";
 
-import { languageList } from "@/i18n/ui";
-import { useTranslations } from "@/i18n/utils";
 import {
   TWEAK_CATEGORIES,
   CATEGORY_ICONS,
   CATEGORY_COLORS,
 } from "@/data/tweakCategories";
 
-const currentLang = Astro.currentLocale || "en";
-const t = useTranslations(currentLang as keyof typeof languageList);
+// Category title mapping
+const categoryTitles: Record<string, string> = {
+  network: "Network",
+  memory: "Memory",
+  gpu: "GPU",
+  windows_features: "Windows Features",
+  firewall_security: "Firewall and Security",
+  nagle_algorithm: "Nagle Algorithm",
+  network_throttling: "Network Throttling",
+  system_responsiveness: "System Responsiveness",
+  latency_timers: "Latency and Timers",
+};
 ---
 
-<BaseLayout title={t("optimizer.title") + " - CodeXtremeOS"}>
+<BaseLayout title="Win Optimizer - CodeXtremeOS">
   <!-- Hero Section -->
   <section class="relative min-h-[40vh] flex items-center justify-center overflow-hidden bg-white dark:bg-[#0a0a0a]">
     <!-- Background Effects -->
@@ -27,11 +35,11 @@ const t = useTranslations(currentLang as keyof typeof languageList);
       <div class="max-w-4xl mx-auto">
         <h1 class="text-6xl md:text-7xl font-bold mb-8 tracking-tight">
           <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 drop-shadow-2xl">
-            {t("optimizer.title")}
+            Win Optimizer
           </span>
         </h1>
         <p class="text-xl md:text-2xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto leading-relaxed backdrop-blur-sm bg-white/50 dark:bg-white/5 p-6 rounded-2xl border border-gray-200 dark:border-white/10">
-          {t("optimizer.hero_description")}
+          Advanced Windows system optimization
         </p>
       </div>
     </div>
@@ -45,7 +53,7 @@ const t = useTranslations(currentLang as keyof typeof languageList);
           TWEAK_CATEGORIES.map((category) => {
             const colors = CATEGORY_COLORS[category];
             const icon = CATEGORY_ICONS[category];
-            const title = t(`optimizer.sections.${category}` as any);
+            const title = categoryTitles[category] || category;
 
             return (
               <a
@@ -70,7 +78,7 @@ const t = useTranslations(currentLang as keyof typeof languageList);
                   </h3>
 
                   <p class="text-gray-600 dark:text-gray-400 text-xs leading-relaxed mb-4 flex-grow line-clamp-2">
-                    {t("optimizer.explore")}
+                    Explore all available tweaks and optimizations
                   </p>
 
                   <div class="flex items-center gap-2 text-[10px] font-medium text-gray-500 dark:text-white/50 group-hover:text-gray-800 dark:group-hover:text-white/80 uppercase tracking-wider">

@@ -1,9 +1,4 @@
 ---
-import { useTranslations } from "@/i18n/utils";
-import { languageList } from "@/i18n/ui";
-
-const currentLang = Astro.currentLocale || "en";
-const t = useTranslations(currentLang as keyof typeof languageList);
 ---
 
 <div
@@ -14,7 +9,7 @@ const t = useTranslations(currentLang as keyof typeof languageList);
   <button
     id="accessibility-toggle"
     class="w-12 h-12 rounded-full bg-[#2563EB] hover:bg-[#1D4ED8] text-white shadow-lg flex items-center justify-center transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-[#2563EB] focus:ring-offset-2 dark:focus:ring-offset-[#141414]"
-    aria-label={t("accessibility.title")}
+    aria-label="Accessibility Tools"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -46,7 +41,7 @@ const t = useTranslations(currentLang as keyof typeof languageList);
         d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z"
         clip-rule="evenodd"></path>
     </svg>
-    <span class="sr-only">{t("accessibility.title")}</span>
+    <span class="sr-only">Accessibility Tools</span>
     <!-- Icono de persona accesible -->
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -79,7 +74,7 @@ const t = useTranslations(currentLang as keyof typeof languageList);
           ></path>
         </svg>
         <h3 class="font-bold text-sm uppercase tracking-wider">
-          {t("accessibility.title")}
+          Accessibility Tools
         </h3>
       </div>
       <button
@@ -108,7 +103,7 @@ const t = useTranslations(currentLang as keyof typeof languageList);
       >
         <span class="text-xl font-bold">A+</span>
         <span class="text-sm font-medium"
-          >{t("accessibility.increase_text")}</span
+          >Increase text</span
         >
       </button>
 
@@ -118,7 +113,7 @@ const t = useTranslations(currentLang as keyof typeof languageList);
       >
         <span class="text-sm font-bold">A-</span>
         <span class="text-sm font-medium"
-          >{t("accessibility.decrease_text")}</span
+          >Decrease text</span
         >
       </button>
 
@@ -140,7 +135,7 @@ const t = useTranslations(currentLang as keyof typeof languageList);
             d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"
           ></path>
         </svg>
-        <span class="text-sm font-medium">{t("accessibility.grayscale")}</span>
+        <span class="text-sm font-medium">Grayscale</span>
       </button>
 
       <button
@@ -167,7 +162,7 @@ const t = useTranslations(currentLang as keyof typeof languageList);
           ></path>
         </svg>
         <span class="text-sm font-medium"
-          >{t("accessibility.high_contrast")}</span
+          >High contrast</span
         >
       </button>
 
@@ -190,7 +185,7 @@ const t = useTranslations(currentLang as keyof typeof languageList);
           ></path>
         </svg>
         <span class="text-sm font-medium"
-          >{t("accessibility.negative_contrast")}</span
+          >Negative contrast</span
         >
       </button>
 
@@ -213,7 +208,7 @@ const t = useTranslations(currentLang as keyof typeof languageList);
           ></path>
         </svg>
         <span class="text-sm font-medium"
-          >{t("accessibility.underline_links")}</span
+          >Underline links</span
         >
       </button>
 
@@ -236,7 +231,7 @@ const t = useTranslations(currentLang as keyof typeof languageList);
           ></path>
         </svg>
         <span class="text-sm font-medium"
-          >{t("accessibility.readable_font")}</span
+          >Readable font</span
         >
       </button>
 
@@ -258,7 +253,7 @@ const t = useTranslations(currentLang as keyof typeof languageList);
             d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
           ></path>
         </svg>
-        <span class="text-sm font-medium">{t("accessibility.reset")}</span>
+        <span class="text-sm font-medium">Reset</span>
       </button>
     </div>
 
@@ -267,7 +262,7 @@ const t = useTranslations(currentLang as keyof typeof languageList);
       class="bg-gray-50 dark:bg-white/5 p-3 text-center border-t border-gray-200 dark:border-white/10"
     >
       <p class="text-xs text-gray-500 dark:text-gray-400">
-        {t("accessibility.current_size")}: <span id="acc-size-label">100%</span>
+        Current size: <span id="acc-size-label">100%</span>
       </p>
     </div>
   </div>

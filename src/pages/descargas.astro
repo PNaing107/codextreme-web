@@ -1,94 +1,88 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
 
-import { getRelativeLocaleUrl } from "astro:i18n";
-import { languageList } from "@/i18n/ui";
-import { useTranslations } from "@/i18n/utils";
-
-const currentLang = Astro.currentLocale || "en";
-const t = useTranslations(currentLang as keyof typeof languageList);
 
 const latestVersions = [
   {
-    title: t("downloads.version3.name"),
-    buildInfo: t("downloads.version3.build_info"),
+    title: "CodeXtremeOS 11",
+    buildInfo: "Build 25H2 optimized with extreme enhancements",
     tags: [
-      { label: t("downloads.tags.x64_uefi"), color: "bg-blue-500/10 text-blue-400 border-blue-500/20" },
-      { label: t("downloads.tags.stable"), color: "bg-green-500/10 text-green-400 border-green-500/20" },
-      { label: `${t("downloads.tags.updated")}: 13-11-2025`, color: "bg-blue-500/10 text-blue-400 border-blue-500/20" },
+      { label: "x64 UEFI", color: "bg-blue-500/10 text-blue-400 border-blue-500/20" },
+      { label: "Stable", color: "bg-green-500/10 text-green-400 border-green-500/20" },
+      { label: `${"Updated"}: 13-11-2025`, color: "bg-blue-500/10 text-blue-400 border-blue-500/20" },
     ],
     features: [
-      t("downloads.features.iso_size_5gb"),
-      t("downloads.features.all_bloatware_removed"),
-      t("downloads.features.debloated_optimized"),
-      t("downloads.features.full_updatable_build"),
-      t("downloads.features.additional_language_support"),
-      t("downloads.features.optional_features_support"),
-      t("downloads.features.improvements_optimizations"),
-      t("downloads.features.no_preinstalled_uwp_apps"),
-      t("downloads.features.winutil_installer"),
-      t("downloads.features.winutil_features"),
-      t("downloads.features.winutil_optimizations"),
-      t("downloads.features_no_internet"),
-      t("downloads.features_telemetry"),
+      "5 GB ISO",
+      "All Bloatware Removed",
+      "Optimized from the start",
+      "Full and Updatable Version",
+      "Full Support for Additional Language Packs, Voice, etc.",
+      "Full Support for all optional features, including WSA and WSL2",
+      "Additional Improvements and Optimizations Included",
+      "No Pre-installed UWP Apps",
+      "Chris Titus WinUtil Installer Included",
+      "Install and Configure Essential Applications via WinUtil",
+      "System Optimizations Available through WinUtil",
+      "No Internet connection required for installation",
+      "Telemetry and Tracking Removed",
     ],
     link: "https://drive.google.com/file/d/1mSNcDq_TYFdYzCXYURqgeBhK1kE6YM4D/view?usp=sharing",
-    linkText: t("downloads.download_button"),
+    linkText: "Download",
     color: "from-orange-500 to-red-500",
     icon: "🚀",
   },
   {
-    title: t("downloads.latest_version.name"),
-    buildInfo: t("downloads.latest_version.build_info"),
+    title: "CodeXtremeOS 11",
+    buildInfo: "Build 24H2 optimized with extreme enhancements",
     tags: [
-      { label: t("downloads.tags.x64_uefi"), color: "bg-blue-500/10 text-blue-400 border-blue-500/20" },
-      { label: t("downloads.tags.stable"), color: "bg-green-500/10 text-green-400 border-green-500/20" },
-      { label: `${t("downloads.tags.updated")}: 7-02-2025`, color: "bg-blue-500/10 text-blue-400 border-blue-500/20" },
+      { label: "x64 UEFI", color: "bg-blue-500/10 text-blue-400 border-blue-500/20" },
+      { label: "Stable", color: "bg-green-500/10 text-green-400 border-green-500/20" },
+      { label: `${"Updated"}: 7-02-2025`, color: "bg-blue-500/10 text-blue-400 border-blue-500/20" },
     ],
     features: [
-      t("downloads.features.iso_size"),
-      t("downloads.features.debloated_optimized"),
-      t("downloads.features.full_updatable_build"),
-      t("downloads.features.automatic_updates_paused"),
-      t("downloads.features.intel_rst_drivers"),
-      t("downloads.features.extreme_performance"),
-      t("downloads.features.uwp_apps_support"),
-      t("downloads.features.additional_language_support"),
-      t("downloads.features.optional_features_support"),
-      t("downloads.features.improvements_optimizations"),
-      t("downloads.features.no_preinstalled_uwp_apps"),
-      t("downloads.features_no_internet"),
-      t("downloads.features_telemetry"),
-      t("downloads.features.ms_store_installer_included"),
+      "3.6 GB ISO",
+      "Optimized from the start",
+      "Full and Updatable Version",
+      "Automatic Updates Paused Until 2029",
+      "Intel RST Drivers Integrated in Installation",
+      "Extreme Performance for your Applications and Games",
+      "Full Support for UWP Apps, Xbox, MS Store, and more",
+      "Full Support for Additional Language Packs, Voice, etc.",
+      "Full Support for all optional features, including WSA and WSL2",
+      "Additional Improvements and Optimizations Included",
+      "No Pre-installed UWP Apps",
+      "No Internet connection required for installation",
+      "Telemetry and Tracking Removed",
+      "MS Store Installer Included",
     ],
     link: "https://www.mediafire.com/file_premium/mfmqqd8b218eozc/CodeXtremeOS11_24H2.iso/file",
-    linkText: t("downloads.download_button"),
+    linkText: "Download",
     color: "from-red-500 to-rose-600",
     icon: "⚡",
   },
   {
-    title: t("downloads.version2.name"),
-    buildInfo: t("downloads.version2.build_info"),
+    title: "CodeXtremeOS 11",
+    buildInfo: "Build 23H2 with new features and optimizations",
     tags: [
-      { label: t("downloads.tags.x64_uefi"), color: "bg-blue-500/10 text-blue-400 border-blue-500/20" },
-      { label: t("downloads.tags.stable"), color: "bg-green-500/10 text-green-400 border-green-500/20" },
-      { label: `${t("downloads.tags.updated")}: 7-02-2025`, color: "bg-blue-500/10 text-blue-400 border-blue-500/20" },
+      { label: "x64 UEFI", color: "bg-blue-500/10 text-blue-400 border-blue-500/20" },
+      { label: "Stable", color: "bg-green-500/10 text-green-400 border-green-500/20" },
+      { label: `${"Updated"}: 7-02-2025`, color: "bg-blue-500/10 text-blue-400 border-blue-500/20" },
     ],
     features: [
-      t("downloads.features.installed_size_4gb"),
-      t("downloads.features.debloated_optimized"),
-      t("downloads.features.full_updatable_build"),
-      t("downloads.features.extreme_performance"),
-      t("downloads.features.uwp_apps_support"),
-      t("downloads.features.additional_language_support"),
-      t("downloads.features.optional_features_support"),
-      t("downloads.features.improvements_optimizations"),
-      t("downloads.features.no_preinstalled_uwp_apps"),
-      t("downloads.features_no_internet"),
-      t("downloads.features_telemetry"),
+      "4.8 GB ISO",
+      "Optimized from the start",
+      "Full and Updatable Version",
+      "Extreme Performance for your Applications and Games",
+      "Full Support for UWP Apps, Xbox, MS Store, and more",
+      "Full Support for Additional Language Packs, Voice, etc.",
+      "Full Support for all optional features, including WSA and WSL2",
+      "Additional Improvements and Optimizations Included",
+      "No Pre-installed UWP Apps",
+      "No Internet connection required for installation",
+      "Telemetry and Tracking Removed",
     ],
     link: "https://www.mediafire.com/file_premium/6txytyd1iu5syr3/CodeXtremeOS11_23H2.iso/file",
-    linkText: t("downloads.download_button"),
+    linkText: "Download",
     color: "from-purple-500 to-indigo-600",
     icon: "💎",
   },
@@ -96,39 +90,39 @@ const latestVersions = [
 
 const previousVersions = [
   {
-    title: t("downloads.version1.name"),
-    buildInfo: t("downloads.version1.build_info"),
+    title: "CodeXtremeOS 10",
+    buildInfo: "Build 22H2 with Legacy support",
     tags: [
-      { label: t("downloads.tags.x64_uefi"), color: "bg-blue-500/10 text-blue-400 border-blue-500/20" },
-      { label: t("downloads.tags.stable"), color: "bg-green-500/10 text-green-400 border-green-500/20" },
-      { label: t("downloads.tags.limited_support"), color: "bg-yellow-500/10 text-yellow-400 border-yellow-500/20" },
-      { label: `${t("downloads.tags.updated")}: 27-05-2025`, color: "bg-blue-500/10 text-blue-400 border-blue-500/20" },
+      { label: "x64 UEFI", color: "bg-blue-500/10 text-blue-400 border-blue-500/20" },
+      { label: "Stable", color: "bg-green-500/10 text-green-400 border-green-500/20" },
+      { label: "Limited support", color: "bg-yellow-500/10 text-yellow-400 border-yellow-500/20" },
+      { label: `${"Updated"}: 27-05-2025`, color: "bg-blue-500/10 text-blue-400 border-blue-500/20" },
     ],
     features: [
-      t("downloads.features.installed_size_3gb"),
-      t("downloads.features.debloated_optimized"),
-      t("downloads.features.full_updatable_build"),
-      t("downloads.features.automatic_updates_paused"),
-      t("downloads.features.intel_rst_drivers"),
-      t("downloads.features.extreme_performance"),
-      t("downloads.features.uwp_apps_support"),
-      t("downloads.features.additional_language_support"),
-      t("downloads.features.optional_features_support"),
-      t("downloads.features.improvements_optimizations"),
-      t("downloads.features.no_preinstalled_uwp_apps"),
-      t("downloads.features_no_internet"),
-      t("downloads.features_telemetry"),
-      t("downloads.features.ms_store_installer_included"),
+      "3.8 GB ISO",
+      "Optimized from the start",
+      "Full and Updatable Version",
+      "Automatic Updates Paused Until 2029",
+      "Intel RST Drivers Integrated in Installation",
+      "Extreme Performance for your Applications and Games",
+      "Full Support for UWP Apps, Xbox, MS Store, and more",
+      "Full Support for Additional Language Packs, Voice, etc.",
+      "Full Support for all optional features, including WSA and WSL2",
+      "Additional Improvements and Optimizations Included",
+      "No Pre-installed UWP Apps",
+      "No Internet connection required for installation",
+      "Telemetry and Tracking Removed",
+      "MS Store Installer Included",
     ],
     link: "https://www.mediafire.com/file_premium/mho2gzlbaeo4n89/CodeXtremeOS10_22H2.iso/file",
-    linkText: t("downloads.download_button"),
+    linkText: "Download",
     color: "from-green-500 to-emerald-600",
     icon: "💾",
   },
 ];
 ---
 
-<BaseLayout title={t("nav.download") + " - CodeXtremeOS"}>
+<BaseLayout title={"Downloads" + " - CodeXtremeOS"}>
   <!-- Hero Section -->
   <section class="relative min-h-[40vh] flex items-center justify-center overflow-hidden bg-white dark:bg-[#141414]">
     <!-- Background Effects -->
@@ -141,11 +135,11 @@ const previousVersions = [
       <div class="max-w-4xl mx-auto">
         <h1 class="text-6xl md:text-7xl font-bold mb-8 tracking-tight">
           <span class="bg-clip-text text-transparent bg-gradient-to-r from-[#FF6F61] to-[#6B5B95] drop-shadow-2xl">
-            {t("nav.download")}
+            {"Downloads"}
           </span>
         </h1>
         <p class="text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto leading-relaxed backdrop-blur-sm bg-white/5 p-6 rounded-2xl border border-white/10">
-          {t("downloads.hero_description")}
+          {"🚀 Modified ISOs"}
         </p>
       </div>
     </div>
@@ -157,17 +151,17 @@ const previousVersions = [
       <div class="bg-gradient-to-r from-[#FFD700]/10 to-[#FF6F61]/10 border border-[#FFD700]/20 text-gray-300 rounded-2xl p-6 backdrop-blur-sm">
         <div class="text-center text-sm md:text-base">
           <p class="leading-relaxed">
-            <strong class="text-[#FFD700]">{t("downloads.announcement.title")}</strong><br />
-            {t("downloads.announcement.full_text")} {t("ntlite.ntlite_name")} {t("nav.guides")}<br /><br />
-            <strong class="text-[#FF6F61]">{t("downloads.announcement.security_title")}</strong><br />
-            {t("downloads.announcement.recommendation")}<br />
+            <strong class="text-[#FFD700]">{"🛠️ Important:"}</strong><br />
+            {"These ISOs were created with NTLite, a tool anyone can use to create their own customized ISO."} {"NTLite"} {"Guides"}<br /><br />
+            <strong class="text-[#FF6F61]">{"⚠️ Security Recommendation:"}</strong><br />
+            {"For maximum reliability, we recommend creating your own version using:"}<br />
             • <a href="https://www.ntlite.com/community/index.php" target="_blank" rel="noopener noreferrer" class="font-bold text-blue-400 hover:text-blue-300 transition-colors">
-              {t("downloads.announcement.official_guides")}
+              {"NTLite official guides"}
             </a><br />
-            • {t("downloads.announcement.our_guides")} <a href={getRelativeLocaleUrl(currentLang, "guias")} class="font-bold text-blue-400 hover:text-blue-300 transition-colors">
-              {t("nav.guides")}
+            • {"Our"} <a href={"/guias"} class="font-bold text-blue-400 hover:text-blue-300 transition-colors">
+              {"Guides"}
             </a><br /><br />
-            {t("downloads.announcement.custom_tip")}
+            {"💡 A custom ISO avoids bloatware and adapts exactly to your needs"}
           </p>
         </div>
       </div>
@@ -178,7 +172,7 @@ const previousVersions = [
   <main class="bg-white dark:bg-[#141414] min-h-screen py-12 relative">
     <div class="container mx-auto px-4">
       <h2 class="text-3xl font-bold text-center mb-12 text-gray-900 dark:text-white">
-        {t("downloads.11_versions.title")}
+        {"💿​ CodeXtremeOS 11"}
       </h2>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-24">
@@ -238,7 +232,7 @@ const previousVersions = [
       </div>
 
       <h2 class="text-3xl font-bold text-center mb-12 text-gray-900 dark:text-white">
-        {t("downloads.previous_versions.title")}
+        {"💿​ Other Versions"}
       </h2>
 
       <div class="flex flex-wrap justify-center gap-8">

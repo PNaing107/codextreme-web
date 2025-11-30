@@ -2,11 +2,13 @@
 interface Props {
   title: string;
   description: string;
+  date: string;
   borderColor: string;
   icons?: string[];
+  materialIcons?: string[];
 }
 
-const { title, description, borderColor, icons = [] } = Astro.props;
+const { title, description, date, borderColor, icons = [], materialIcons = [] } = Astro.props;
 
 const colorClass = borderColor.replace("border-", "text-");
 ---
@@ -21,16 +23,26 @@ const colorClass = borderColor.replace("border-", "text-");
 
   <div class="relative z-10 flex-grow">
     {
-      icons.length > 0 && (
+      (icons.length > 0 || materialIcons.length > 0) && (
         <div
           class={`mb-6 rounded-xl bg-gray-50 dark:bg-white/5 flex items-center justify-center border border-gray-100 dark:border-white/10 group-hover:scale-110 transition-transform duration-300 ${
-            icons.length > 1 ? 'p-2 gap-2' : 'w-12 h-12'
+            (icons.length + materialIcons.length) > 1 ? 'p-2 gap-2' : 'w-12 h-12'
           }`}
         >
           {
+            materialIcons.map((iconName) => (
+              <span
+                class={`material-symbols-outlined ${icons.length + materialIcons.length > 1 ? 'text-2xl' : 'text-3xl'} ${colorClass}`}
+                style="font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24"
+              >
+                {iconName}
+              </span>
+            ))
+          }
+          {
             icons.map((iconPath) => (
               <svg
-                class={`${icons.length > 1 ? 'w-5 h-5' : 'w-6 h-6'} ${colorClass}`}
+                class={`${icons.length + materialIcons.length > 1 ? 'w-5 h-5' : 'w-6 h-6'} ${colorClass}`}
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -51,6 +63,10 @@ const colorClass = borderColor.replace("border-", "text-");
     >
       {title}
     </h3>
+
+    <h4 class="text-sm text-gray-600 dark:text-white leading-relaxed mb-3">
+      {date}
+    </h4>
 
     <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
       {description}

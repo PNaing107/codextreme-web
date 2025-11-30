@@ -1,5 +1,12 @@
 ---
-const { title, description, borderColor, icon } = Astro.props;
+interface Props {
+  title: string;
+  description: string;
+  borderColor: string;
+  icons?: string[];
+}
+
+const { title, description, borderColor, icons = [] } = Astro.props;
 
 const colorClass = borderColor.replace("border-", "text-");
 ---
@@ -13,21 +20,31 @@ const colorClass = borderColor.replace("border-", "text-");
   </div>
 
   <div class="relative z-10 flex-grow">
-    <div
-      class={`w-12 h-12 mb-6 rounded-xl bg-gray-50 dark:bg-white/5 flex items-center justify-center border border-gray-100 dark:border-white/10 group-hover:scale-110 transition-transform duration-300`}
-    >
-      <svg
-        class={`w-6 h-6 ${colorClass}`}
-        fill="none"
-        stroke="currentColor"
-        viewBox="0 0 24 24"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      >
-        <path d={icon}></path>
-      </svg>
-    </div>
+    {
+      icons.length > 0 && (
+        <div
+          class={`mb-6 rounded-xl bg-gray-50 dark:bg-white/5 flex items-center justify-center border border-gray-100 dark:border-white/10 group-hover:scale-110 transition-transform duration-300 ${
+            icons.length > 1 ? 'p-2 gap-2' : 'w-12 h-12'
+          }`}
+        >
+          {
+            icons.map((iconPath) => (
+              <svg
+                class={`${icons.length > 1 ? 'w-5 h-5' : 'w-6 h-6'} ${colorClass}`}
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d={iconPath}></path>
+              </svg>
+            ))
+          }
+        </div>
+      )
+    }
 
     <h3
       class="text-xl font-bold mb-3 text-gray-900 dark:text-white group-hover:text-gray-700 dark:group-hover:text-white/90 transition-colors"

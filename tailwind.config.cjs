@@ -3,6 +3,19 @@ const colors = require('tailwindcss/colors');
 module.exports = {
   darkMode: 'class',
   content: ['./src/**/*.{astro,html,js,jsx,ts,tsx,vue}'],
+  safelist: [
+    'text-pink-500',
+    'text-blue-500',
+    'text-purple-500',
+    'text-green-500',
+    'text-cyan-500',
+    'text-orange-500',
+    'text-teal-500',
+    'text-fuchsia-500',
+    'text-indigo-500',
+    'text-red-500',
+    'text-yellow-500',
+  ],
   theme: {
     container: {
       center: true,

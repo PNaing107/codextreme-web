@@ -1,0 +1,66 @@
+[
+  {
+    "title": "An Res Hellys | Cornish GP Race 4",
+    "slug": "an-res-hellys",
+    "description": "10 mile multi-terrain running race starting and finishing in Helston",
+    "date": "8th of March 2026",
+    "materialIcons": ["sprint"]
+  },
+  {
+    "title": "Falmouth Half Marathon | Cornish GP Race 5",
+    "slug": "falmouth-half",
+    "description": "Half marathon taking in views of Gyllyngvase, Swanpool and Maenporth beaches",
+    "date": "15th of March 2026",
+    "materialIcons": ["sprint"]
+  },
+  {
+    "title": "Wheal Jane Duathlon (New Event for 2026)",
+    "slug": "wheal-jane-duathlon",
+    "description": "Duathlon starting and finishing in Falmouth",
+    "date": "22nd of March 2026",
+    "materialIcons": ["sprint", "directions_bike", "sprint"]
+  },
+  {
+    "title": "Marazion Tri | The Kernowman",
+    "slug": "kernowman",
+    "description": "Cornwall's largest triathlon / aquabike event with distances ranging from super sprint to 70.3",
+    "date": "30th of May 2026",
+    "materialIcons": ["pool", "directions_bike", "sprint"]
+  },
+  {
+    "title": "Tavistock Tri | The Squirrel",
+    "slug": "tavistock",
+    "description": "Need to think of a description for this event",
+    "date": "12th of July 2026",
+    "materialIcons": ["pool", "directions_bike", "sprint"]
+  },
+  {
+    "title": "Bodmin Tri | The Dragon",
+    "slug": "bodmin",
+    "description": "Need to think of a description for this event",
+    "date": "23rd of August 2026",
+    "materialIcons": ["pool", "directions_bike", "sprint"]
+  },
+  {
+    "title": "Perranporth Tri | The Shark",
+    "slug": "perranporth",
+    "description": "Need to think of a description for this event",
+    "date": "6th of September 2026",
+    "materialIcons": ["pool", "directions_bike", "sprint"]
+  },
+  {
+    "title": "Falmouth Tri | The Seal",
+    "slug": "falmouth",
+    "description": "Need to think of a description for this event",
+    "date": "20th of September 2026",
+    "materialIcons": ["pool", "directions_bike", "sprint"]
+  },
+  {
+    "title": "Selsey Tri | Seal Bay",
+    "slug": "selsey",
+    "description": "Need to think of a description for this event",
+    "date": "4th of October 2026",
+    "materialIcons": ["pool", "directions_bike", "sprint"]
+  }
+]
+

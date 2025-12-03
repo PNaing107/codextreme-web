@@ -6,34 +6,29 @@ const navLinks = [
   {
     href: "/",
     label: "Home",
-    icon: `<svg class="w-5 h-5 mr-2 text-[#FF6F61] opacity-70 group-hover:opacity-100" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
-          </svg>`,
+    icon: "home",
+    iconColor: "text-[#FF6F61]",
     hoverText: "hover:text-[#FF6F61]",
   },
-
   {
     href: "/events",
     label: "Events",
-    icon: `<svg class="w-5 h-5 mr-2 text-[#6B5B95] opacity-70 group-hover:opacity-100" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 003-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
-          </svg>`,
+    icon: "event",
+    iconColor: "text-[#6B5B95]",
     hoverText: "hover:text-[#6B5B95]",
   },
   {
     href: "/about",
     label: "About Us",
-    icon: `<svg class="w-5 h-5 mr-2 text-[#4CAF50] opacity-70 group-hover:opacity-100" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l.637 1.958a1.724 1.724 0 001.616 1.196h2.045c.969 0 1.371 1.24.588 1.81l-1.657 1.2a1.724 1.724 0 000 2.936l1.657 1.2c.783.57.38 1.81-.588 1.81h-2.045a1.724 1.724 0 00-1.616 1.196l-.637 1.958c-.3.921-1.603.921-1.902 0l-.637-1.958a1.724 1.724 0 00-1.616-1.196H6.807c-.969 0-1.371-1.24-.588-1.81l1.657-1.2a1.724 1.724 0 000-2.936l-1.657-1.2c-.783-.57-.38-1.81.588-1.81h2.045a1.724 1.724 0 001.616-1.196l.637-1.958z" />
-         </svg>`,
+    icon: "info",
+    iconColor: "text-[#4CAF50]",
     hoverText: "hover:text-[#4CAF50]",
   },
   {
     href: "/partners",
     label: "Partners",
-    icon: `<svg class="w-5 h-5 mr-2 text-[#1b357e] opacity-70 group-hover:opacity-100" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4a4 4 0 014 4v8a4 4 0 01-4 4H8a4 4 0 01-4-4V8a4 4 0 014-4h8m0 12h4m-4 0l-4-4m4 4l4-4"></path>
-         </svg>`,
+    icon: "handshake",
+    iconColor: "text-[#1b357e]",
     hoverText: "hover:text-[#1b357e]",
   },
 ];
@@ -64,7 +59,12 @@ const navLinks = [
                 href={link.href}
                 class={`${linkClasses} ${link.hoverText} animate-linkElectric`}
               >
-                <span set:html={link.icon} />
+                <span
+                  class={`material-symbols-outlined w-5 h-5 mr-2 ${link.iconColor} opacity-70 group-hover:opacity-100`}
+                  style="font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24"
+                >
+                  {link.icon}
+                </span>
                 {link.label}
               </a>
             </li>
@@ -119,7 +119,12 @@ const navLinks = [
           navLinks.map((link) => (
             <li>
               <a href={link.href} class={`${linkClasses} ${link.hoverText}`}>
-                <span set:html={link.icon} />
+                <span
+                  class={`material-symbols-outlined w-5 h-5 mr-2 ${link.iconColor} opacity-70 group-hover:opacity-100`}
+                  style="font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24"
+                >
+                  {link.icon}
+                </span>
                 {link.label}
               </a>
             </li>

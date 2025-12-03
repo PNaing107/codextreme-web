@@ -7,29 +7,29 @@ const navLinks = [
     href: "/",
     label: "Home",
     icon: "home",
-    iconColor: "text-[#FF6F61]",
-    hoverText: "hover:text-[#FF6F61]",
+    iconColor: "text-[var(--intotri-pink)]",
+    hoverText: "hover:text-[var(--intotri-pink)]",
   },
   {
     href: "/events",
     label: "Events",
     icon: "event",
-    iconColor: "text-[#6B5B95]",
-    hoverText: "hover:text-[#6B5B95]",
+    iconColor: "text-[var(--intotri-pink)]",
+    hoverText: "hover:text-[var(--intotri-pink)]",
   },
   {
     href: "/about",
     label: "About Us",
     icon: "info",
-    iconColor: "text-[#4CAF50]",
-    hoverText: "hover:text-[#4CAF50]",
+    iconColor: "text-[var(--intotri-pink)]",
+    hoverText: "hover:text-[var(--intotri-pink)]",
   },
   {
     href: "/partners",
     label: "Partners",
     icon: "handshake",
-    iconColor: "text-[#1b357e]",
-    hoverText: "hover:text-[#1b357e]",
+    iconColor: "text-[var(--intotri-pink)]",
+    hoverText: "hover:text-[var(--intotri-pink)]",
   },
 ];
 ---
@@ -57,7 +57,7 @@ const navLinks = [
             <li>
               <a
                 href={link.href}
-                class={`${linkClasses} ${link.hoverText} animate-linkElectric`}
+                class={`${linkClasses} ${link.hoverText}`}
               >
                 <span
                   class={`material-symbols-outlined w-5 h-5 mr-2 ${link.iconColor} opacity-70 group-hover:opacity-100`}

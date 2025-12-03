@@ -1,3 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --intotri-pink: #fc037f;
+  --intotri-blue: #4db0ee;
+}

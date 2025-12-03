@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import Card from "@/components/Card.astro";
+import seniorEvents from '../data/seniorEvents.json';
 
 ---
 
@@ -42,69 +43,15 @@ import Card from "@/components/Card.astro";
       </h2>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <Card
-          title="An Res Hellys | Cornish GP Race 4"
-          description="10 mile multi-terrain running race starting and finishing in Helston"
-          date="8th of March 2026"
-          borderColor="border-pink-500"
-          materialIcons={["sprint"]}
-        />
-        <Card
-          title="Run Falmouth 2026 | Cornish GP Race 5"
-          description="Half marathon taking in views of Gyllyngvase, Swanpool and Maenporth beaches"
-          date="15th of March 2026"
-          borderColor="border-pink-500"
-          materialIcons={["sprint"]}
-        />
-        <Card
-          title="Wheal Jane Duathlon (New Event for 2026)"
-          description="Multi-lap, multi-round event with a trail run and a closed road cycle circuit"
-          date="22nd of March 2026"
-          borderColor="border-pink-500"
-          materialIcons={["sprint","directions_bike", "sprint"]}
-        />
-        <Card
-          title="Marazion Tri | The Kernowman"
-          description="Cornwall's largest triathlon / aquabike event with distances ranging from super sprint to 70.3"
-          date="30th of May 2026"
-          borderColor="border-pink-500"
-          materialIcons={["pool", "directions_bike", "sprint"]}
-        />
-        <Card
-          title="Tavistock Tri | The Squirrel"
-          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-          date="12th of July 2026"
-          borderColor="border-pink-500"
-          materialIcons={["pool", "directions_bike", "sprint"]}
-        />
-        <Card
-          title="Bodmin Tri | The Dragon"
-          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-          date="23rd of August 2026"
-          borderColor="border-pink-500"
-          materialIcons={["pool", "directions_bike", "sprint"]}
-        />
-        <Card
-          title="Perranporth Tri | The Shark"
-          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-          date="6th of September 2026"
-          borderColor="border-pink-500"
-          materialIcons={["pool", "directions_bike", "sprint"]}
-        />
-        <Card
-          title="Falmouth Tri | The Seal"
-          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-          date="20th of September 2026"
-          borderColor="border-pink-500"
-          materialIcons={["pool", "directions_bike", "sprint"]}
-        />
-        <Card
-        title="Selsey Tri | Seal Bay"
-        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-        date="4th of October 2026"
-        borderColor="border-pink-500"
-        materialIcons={["pool", "directions_bike", "sprint"]}
-      />
+        {seniorEvents.map((event: { title: string; description: string; date: string; materialIcons: string[] }) => (
+          <Card
+            title={event.title}
+            description={event.description}
+            date={event.date}
+            borderColor="border-pink-500"
+            materialIcons={event.materialIcons}
+          />
+        ))}
       </div>
     </div>
   </main>

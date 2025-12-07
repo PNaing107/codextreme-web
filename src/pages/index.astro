@@ -1,8 +1,7 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import Card from "@/components/Card.astro";
-import seniorEvents from '../data/seniorEvents.json';
-import juniorEvents from '../data/juniorEvents.json';
+import events from '../data/events.json';
 
 ---
 
@@ -35,140 +34,42 @@ import juniorEvents from '../data/juniorEvents.json';
     <div class="container mx-auto px-4">
       <h2
         id="senior-events"
-        class="text-3xl md:text-4xl font-bold text-center mb-16 text-gray-900 dark:text-white scroll-mt-24"
+        class="text-4xl md:text-5xl font-bold text-center mb-16 text-gray-900 dark:text-white scroll-mt-24"
       >
         <span
-          class="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400"
+          class="bg-clip-text text-transparent bg-gradient-to-r from-[var(--intotri-blue)] to-[var(--intotri-pink)]"
         >
-          Upcoming Senior Events
+          Upcoming Events
         </span>
       </h2>
+      
+      <div class="mb-12 flex justify-center items-center">
+        <!-- Key Section -->
+        <div class="flex flex-row gap-12">
+          <div class="flex items-center gap-3">
+            <span class="inline-block w-5 h-5 rounded-full bg-[var(--intotri-pink)]"></span>
+            <span class="text-base font-medium text-gray-900 dark:text-gray-100">Senior Events</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="inline-block w-5 h-5 rounded-full bg-[var(--intotri-blue)]"></span>
+            <span class="text-base font-medium text-gray-900 dark:text-gray-100">Junior Events</span>
+          </div>
+        </div>
+      </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        {seniorEvents.map((event: { title: string; description: string; date: string; materialIcons: string[] }) => (
+        {events.map((event: { title: string; description: string; ageCategory: string; date: string; materialIcons: string[]; }) => (
           <Card
             title={event.title}
             description={event.description}
             date={event.date}
-            borderColor="border-pink-500"
+            borderColor={event.ageCategory === "Senior" ? "border-[var(--intotri-pink)]" : "border-[var(--intotri-blue)]"}
             materialIcons={event.materialIcons}
           />
         ))}
       </div>
     </div>
   </main>
-
-  <!-- Sección de Características -->
-  <section
-    class="bg-white dark:bg-[#141414] py-16 border-t border-gray-200 dark:border-white/5"
-  >
-    <div class="container mx-auto px-4">
-      <h2
-        id="junior-events"
-        class="text-3xl md:text-4xl font-bold text-center mb-16 text-gray-900 dark:text-white scroll-mt-24"
-      >
-        <span
-          class="bg-clip-text text-transparent bg-gradient-to-r from-red-400 to-orange-400"
-        >
-          Upcoming Junior Events
-        </span>
-      </h2>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        {juniorEvents.map((event: { title: string; description: string; date: string; materialIcons: string[] }) => (
-          <Card
-            title={event.title}
-            description={event.description}
-            date={event.date}
-            borderColor="border-pink-500"
-            materialIcons={event.materialIcons}
-          />
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- Anuncio NTLite -->
-  <div class="bg-white dark:bg-[#141414] pb-16 px-4">
-    <div class="container mx-auto">
-      <div
-        class="relative rounded-2xl overflow-hidden border border-yellow-500/20 bg-yellow-50 dark:bg-yellow-500/5 p-8 md:p-12"
-      >
-        <div
-          class="absolute inset-0 bg-gradient-to-r from-yellow-500/10 to-transparent pointer-events-none"
-        >
-        </div>
-
-        <div class="relative z-10 max-w-4xl mx-auto text-center space-y-6">
-          <div
-            class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-yellow-500/10 text-yellow-500 mb-4"
-          >
-            <svg
-              class="w-8 h-8"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              ><path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-              ></path></svg
-            >
-          </div>
-
-          <p class="text-gray-700 dark:text-gray-300 leading-relaxed text-lg">
-            <strong class="text-gray-900 dark:text-white"
-              >Important Information:</strong
-            > This ISO was optimized and created with
-            <a
-              href="https://www.ntlite.com/download/"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="text-yellow-400 hover:text-yellow-300 font-bold underline decoration-2 underline-offset-2 transition-colors"
-              >NTLite</a
-            >, a professional tool that anyone can use.
-          </p>
-
-          <div class="grid md:grid-cols-2 gap-6 text-left mt-8">
-            <div
-              class="bg-white/50 dark:bg-black/20 p-6 rounded-xl border border-yellow-500/10 dark:border-white/5"
-            >
-              <h3
-                class="text-gray-900 dark:text-white font-bold mb-2 flex items-center gap-2"
-              >
-                <span>📚</span> Learning Resources
-              </h3>
-              <p class="text-sm text-gray-600 dark:text-gray-400">
-                Guides and tutorials available in the
-                <a
-                  href="https://www.ntlite.com/community/index.php?forums/guides.9/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="text-yellow-400 hover:text-yellow-300 underline"
-                  >official NTLite forum</a
-                >.
-              </p>
-            </div>
-
-            <div
-              class="bg-white/50 dark:bg-black/20 p-6 rounded-xl border border-yellow-500/10 dark:border-white/5"
-            >
-              <h3
-                class="text-gray-900 dark:text-white font-bold mb-2 flex items-center gap-2"
-              >
-                <span>⚠️</span> Recommendation
-              </h3>
-              <p class="text-sm text-gray-600 dark:text-gray-400">
-                I strongly recommend creating your own customized ISO for
-                maximum security and control.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 
   <!-- Sección Final CTA -->
   <section class="relative py-20 overflow-hidden bg-white dark:bg-[#141414]">
@@ -184,29 +85,11 @@ import juniorEvents from '../data/juniorEvents.json';
         <span
           class="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400"
         >
-          Ready to start?
+          From the TRIbe
         </span>
       </h2>
 
-      <a
-        href="/descargas"
-        class="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white bg-blue-600 hover:bg-blue-500 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/50"
-      >
-        Download Now
-        <svg
-          class="w-5 h-5 ml-2"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
-          ></path>
-        </svg>
-      </a>
+      
     </div>
   </section>
 </BaseLayout>

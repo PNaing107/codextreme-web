@@ -32,12 +32,28 @@
     "materialIcons": ["pool", "directions_bike", "sprint"]
   },
   {
+    "title": "Kernow-kid",
+    "slug": "kernow-kid",
+    "description": "Scootathlon (5-8 year olds), Aquathlon (8-16 year olds)",
+    "ageCategory": "Junior",
+    "date": "2026-05-30",
+    "materialIcons": ["scooter", "child_care"]
+  },
+  {
     "title": "Tavistock Tri | The Squirrel",
     "slug": "tavistock",
     "description": "Need to think of a description for this event",
     "ageCategory": "Senior",
     "date": "2026-07-12",
     "materialIcons": ["pool", "directions_bike", "sprint"]
+  },
+  {
+    "title": "Mini Squirrel",
+    "slug": "mini-squirrel",
+    "description": "Micro Duathlon (5-8 year olds), Mini Tri (8-16 year olds)",
+    "ageCategory": "Junior",
+    "date": "2026-07-12",
+    "materialIcons": ["child_care"]
   },
   {
     "title": "Bodmin Tri | The Dragon",
@@ -48,12 +64,28 @@
     "materialIcons": ["pool", "directions_bike", "sprint"]
   },
   {
+    "title": "Mini Dragon",
+    "slug": "mini-dragon",
+    "description": "Micro Duathlon (5-8 year olds), Mini Tri (8-16 year olds)",
+    "ageCategory": "Junior",
+    "date": "2026-08-23",
+    "materialIcons": ["child_care"]
+  },
+  {
     "title": "Perranporth Tri | The Shark",
     "slug": "perranporth",
     "description": "Need to think of a description for this event",
     "ageCategory": "Senior",
     "date": "2026-09-06",
     "materialIcons": ["pool", "directions_bike", "sprint"]
+  },
+  {
+    "title": "Mini Shark",
+    "slug": "mini-dragon",
+    "description": "Scootathlon (5-8 year olds), Mini Tri (8-16 year olds)",
+    "ageCategory": "Junior",
+    "date": "2026-09-06",
+    "materialIcons": ["scooter", "child_care"]
   },
   {
     "title": "Falmouth Tri | The Seal",
@@ -64,12 +96,28 @@
     "materialIcons": ["pool", "directions_bike", "sprint"]
   },
   {
+    "title": "Mini Seal",
+    "slug": "mini-seal",
+    "description": "Scootathlon (5-8 year olds), Mini Tri (8-16 year olds)",
+    "ageCategory": "Junior",
+    "date": "2026-09-20",
+    "materialIcons": ["scooter", "child_care"]
+  },
+  {
     "title": "Selsey Tri | Seal Bay",
     "slug": "selsey",
     "description": "Need to think of a description for this event",
     "ageCategory": "Senior",
     "date": "2026-10-04",
     "materialIcons": ["pool", "directions_bike", "sprint"]
+  },
+  {
+    "title": "Selsey Junior Triathlon",
+    "slug": "selsey-junior-triathlon",
+    "description": "Scootathlon (5-8 year olds), Mini Tri (8-16 year olds)",
+    "ageCategory": "Junior",
+    "date": "2026-10-04",
+    "materialIcons": ["scooter", "child_care"]
   }
 ]
 

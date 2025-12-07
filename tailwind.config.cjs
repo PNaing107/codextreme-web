@@ -15,6 +15,10 @@ module.exports = {
     'text-indigo-500',
     'text-red-500',
     'text-yellow-500',
+    'text-[var(--intotri-pink)]',
+    'text-[var(--intotri-blue)]',
+    'border-[var(--intotri-pink)]',
+    'border-[var(--intotri-blue)]',
   ],
   theme: {
     container: {

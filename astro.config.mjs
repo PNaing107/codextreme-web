@@ -4,7 +4,9 @@ import tailwind from "@astrojs/tailwind";
 import sitemap from "@astrojs/sitemap";
 
 export default defineConfig({
-  site: "https://www.codextreme.me",
+  // GitHub Pages configuration
+  base: "/codextreme-web/",
+  site: "https://PNaing107.github.io",
   output: "static",
   integrations: [
     tailwind(),

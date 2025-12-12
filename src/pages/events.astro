@@ -1,132 +1,92 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import SupportNotice from "@/components/SoporteNoticias.astro";
+import Card from "@/components/Card.astro";
+import events from '../data/events.json';
 
-const guides = [
-  {
-    title: "Create Your Own Optimized ISO",
-    description: "Complete guide to create and customize your optimized Windows ISO",
-    link: "https://www.youtube.com/watch?v=fqTt4DarrOU",
-    color: "from-orange-500 to-red-500",
-    icon: "🛠️",
-  },
-  {
-    title: "Mega Optimization Pack",
-    description: "Optimize your PC by 500% with this mega pack",
-    link: "https://www.youtube.com/watch?v=dnE5RRnIvKI",
-    color: "from-purple-500 to-indigo-500",
-    icon: "⚡",
-  },
-  {
-    title: "Personalization",
-    description: "Make your Windows look great without resource consumption",
-    link: "https://www.youtube.com/watch?v=vqYixOxhdgc",
-    color: "from-yellow-400 to-amber-500",
-    icon: "🎨",
-  },
-  {
-    title: "Hidden Policies",
-    description: "Enable hidden policies to get the most out of your performance",
-    link: "https://www.youtube.com/watch?v=WfpFgQdWT20&list=PL0rDzzHg4fUli-ciiihzmJnr-scB0FuY8",
-    color: "from-green-500 to-emerald-600",
-    icon: "🔧",
-  },
-  {
-    title: "Resource Optimization",
-    description: "Learn to reduce CPU and RAM usage to maximize the performance of your ISO.",
-    link: "https://www.youtube.com/watch?v=5Q8CHJxlil4",
-    color: "from-cyan-400 to-blue-500",
-    icon: "🚀",
-  },
-  {
-    title: "Clean Installation",
-    description: "Discover how to set up automatic tasks after installation to keep your system optimized.",
-    link: "https://windowsforum.com/threads/step-by-step-guide-how-to-do-a-clean-install-of-windows-11.264029/",
-    color: "from-orange-600 to-red-600",
-    icon: "🤖",
-  },
-  {
-    title: "Increase Performance",
-    description: "Discover how to increase the performance of your Windows 11 with these tips and tricks.",
-    link: "https://www.youtube.com/watch?v=iBiNfa32AnE",
-    color: "from-fuchsia-500 to-pink-600",
-    icon: "🔍",
-  },
-  {
-    title: "The Best Software",
-    description: "Discover the best software for Windows 10/11 in 2025.",
-    link: "https://alternativeto.net/",
-    color: "from-indigo-500 to-blue-600",
-    icon: "💻",
-  },
-];
+const BASE_URL = import.meta.env.BASE_URL;
+
+// Group events by month
+interface Event {
+  title: string;
+  description: string;
+  ageCategory: string;
+  date: string;
+  materialIcons: string[];
+}
+
+const groupedEvents = events.reduce((acc, event: Event) => {
+  const date = new Date(event.date);
+  const monthKey = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}`;
+  
+  if (!acc[monthKey]) {
+    acc[monthKey] = [];
+  }
+  acc[monthKey].push(event);
+  return acc;
+}, {} as Record<string, Event[]>);
+
+// Sort months chronologically
+const sortedMonths = Object.keys(groupedEvents).sort();
+
+// Helper function to format month name
+const formatMonthName = (monthKey: string): string => {
+  const [year, month] = monthKey.split('-');
+  const date = new Date(parseInt(year), parseInt(month) - 1, 1);
+  return date.toLocaleDateString('en-GB', { month: 'long', year: 'numeric' });
+};
+
 ---
 
-<BaseLayout title="Guides and Tutorials - CodeXtremeOS">
-  <!-- Hero Section -->
-  <section class="relative min-h-[40vh] flex items-center justify-center overflow-hidden bg-white dark:bg-[#141414]">
-    <!-- Background Effects -->
-    <div class="absolute inset-0">
-      <div class="absolute inset-0 bg-gradient-to-b from-purple-900/5 via-blue-900/5 to-white dark:from-purple-900/20 dark:via-blue-900/10 dark:to-[#141414]"></div>
-      <div class="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-10"></div>
-    </div>
-
-    <div class="container mx-auto text-center px-4 relative z-10 pt-20">
-      <div class="max-w-4xl mx-auto">
-        <h1 class="text-6xl md:text-7xl font-bold mb-8 tracking-tight">
-          <span class="bg-clip-text text-transparent bg-gradient-to-r from-[#FF6F61] to-[#6B5B95] drop-shadow-2xl">
-            CodeXtreme Guides
-          </span>
-        </h1>
-        <p class="text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto leading-relaxed backdrop-blur-sm bg-white/5 p-6 rounded-2xl border border-white/10">
-          🚀 Master optimization with our step-by-step guides.
-        </p>
-      </div>
-    </div>
-  </section>
-
+<BaseLayout>
   <!-- Main Section -->
-  <main class="bg-white dark:bg-[#141414] min-h-screen py-12 relative">
-    <SupportNotice />
-
-    <div class="container mx-auto px-4 mt-12">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        {guides.map((guide) => (
-          <a
-            href={guide.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="group relative bg-white dark:bg-[#1A1A1A] rounded-2xl overflow-hidden border border-gray-200 dark:border-white/5 hover:border-gray-300 dark:hover:border-white/20 transition-all duration-500 hover:shadow-2xl hover:-translate-y-1"
-          >
-            <!-- Glow Effect -->
-            <div class={`absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-500 bg-gradient-to-br ${guide.color} blur-xl -z-10`}></div>
-
-            <div class="p-6 relative z-10 h-full flex flex-col">
-              <div class="flex items-center justify-between mb-4">
-                <div class={`w-12 h-12 rounded-xl flex items-center justify-center text-2xl bg-gradient-to-br ${guide.color} shadow-lg group-hover:scale-110 transition-transform duration-500`}>
-                  {guide.icon}
-                </div>
-                <div class={`w-8 h-8 rounded-full border border-white/10 flex items-center justify-center text-white/50 group-hover:bg-white group-hover:text-black group-hover:scale-110 transition-all duration-300`}>
-                  →
-                </div>
-              </div>
-
-              <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-200 transition-colors">
-                {guide.title}
-              </h3>
-
-              <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-4 flex-grow">
-                {guide.description}
-              </p>
-
-              <div class="flex items-center gap-2 text-[10px] font-medium text-gray-500 dark:text-white/50 group-hover:text-gray-800 dark:group-hover:text-white/80 uppercase tracking-wider">
-                <span class={`w-1.5 h-1.5 rounded-full bg-gradient-to-r ${guide.color}`}></span>
-                Watch Guide
-              </div>
-            </div>
-          </a>
-        ))}
+  <main class="bg-white dark:bg-[#141414] py-16 relative">
+    <div class="container mx-auto py-16">
+      <h2
+        id="senior-events"
+        class="text-4xl md:text-5xl font-bold text-center mb-16 text-gray-900 dark:text-white scroll-mt-24"
+      >
+        <span
+          class="bg-clip-text text-transparent bg-gradient-to-r from-[var(--intotri-blue)] to-[var(--intotri-pink)]"
+        >
+          Upcoming Events
+        </span>
+      </h2>
+      
+      <div class="mb-12 flex justify-center items-center">
+        <!-- Key Section -->
+        <div class="flex flex-row gap-12">
+          <div class="flex items-center gap-3">
+            <span class="inline-block w-5 h-5 rounded-full bg-[var(--intotri-pink)]"></span>
+            <span class="text-base font-medium text-gray-900 dark:text-gray-100">Senior Events</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="inline-block w-5 h-5 rounded-full bg-[var(--intotri-blue)]"></span>
+            <span class="text-base font-medium text-gray-900 dark:text-gray-100">Junior Events</span>
+          </div>
+        </div>
       </div>
+
+      {sortedMonths.map((monthKey, monthIndex) => (
+        <div>
+          <h3 class="text-2xl md:text-3xl font-bold mb-6 text-gray-900 dark:text-white">
+            {formatMonthName(monthKey)}
+          </h3>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+            {groupedEvents[monthKey].map((event: Event) => (
+              <Card
+                title={event.title}
+                description={event.description}
+                date={event.date}
+                borderColor={event.ageCategory === "Senior" ? "border-[var(--intotri-pink)]" : "border-[var(--intotri-blue)]"}
+                materialIcons={event.materialIcons}
+              />
+            ))}
+          </div>
+          {monthIndex < sortedMonths.length - 1 && (
+            <hr class="border-gray-200 dark:border-white/10 mb-8" />
+          )}
+        </div>
+      ))}
     </div>
   </main>
 </BaseLayout>

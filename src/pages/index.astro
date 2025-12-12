@@ -1,9 +1,20 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import Card from "@/components/Card.astro";
+import Carousel from "@/components/Carousel.astro";
 import events from '../data/events.json';
 
 const BASE_URL = import.meta.env.BASE_URL;
+
+// Carousel images
+const carouselImages = [
+  "assets/slideshow/desktop/bodmin-junior.jpeg",
+  "assets/slideshow/desktop/falmouth-finish.jpeg",
+  "assets/slideshow/desktop/falmouth-half.jpeg",
+  "assets/slideshow/desktop/gylly-from-above.jpeg",
+  "assets/slideshow/desktop/scootathlon.jpeg",
+  "assets/slideshow/desktop/selsey-from-above.jpeg",
+];
 
 const buttonGroup = [
   {label: "Events", href: "/events"},
@@ -17,7 +28,7 @@ const buttonGroup = [
 ---
 
 <BaseLayout>
-  <!-- Hero Section -->
+  <!-- Hero Section - Carousel -->
   <div class="relative pt-24 pb-12 overflow-hidden">
     <div class="absolute inset-0 bg-white dark:bg-[#141414]"></div>
     <div
@@ -27,15 +38,7 @@ const buttonGroup = [
 
     <div class="container mx-auto text-center px-4 relative z-10">
       <div class="max-w-6xl mx-auto">
-        <div class="relative rounded-2xl overflow-hidden shadow-2xl">
-          <img
-            src={`${BASE_URL}assets/hero_banner.png`}
-            alt="Hero Banner"
-            class="w-full h-auto object-cover"
-            loading="eager"
-          />
-          <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
-        </div>
+        <Carousel images={carouselImages} autoplay={true} interval={5000} height="600px" />
       </div>
     </div>
   </div>

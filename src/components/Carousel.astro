@@ -1,0 +1,187 @@
+---
+interface Props {
+  images: string[];
+  autoplay?: boolean;
+  interval?: number;
+  height?: string;
+}
+
+const { images, autoplay = true, interval = 5000, height = "600px" } = Astro.props;
+const BASE_URL = import.meta.env.BASE_URL;
+const carouselId = `carousel-${Math.random().toString(36).substr(2, 9)}`;
+
+// Ensure all image paths include BASE_URL
+const imagePaths = images.map((img) => {
+  if (img.startsWith('/')) {
+    return `${BASE_URL}${img.slice(1)}`;
+  }
+  if (img.startsWith(BASE_URL)) {
+    return img;
+  }
+  return `${BASE_URL}${img}`;
+});
+---
+
+<div
+  class="relative rounded-2xl overflow-hidden shadow-2xl group h-[400px] md:h-[500px] lg:h-[600px]"
+  id={carouselId}
+  data-autoplay={autoplay}
+  data-interval={interval}
+  data-height={height}
+>
+  <div class="relative w-full h-full overflow-hidden">
+    {imagePaths.map((image, index) => (
+      <div
+        class={`carousel-slide absolute inset-0 transition-opacity duration-1000 ${
+          index === 0 ? "opacity-100 z-10" : "opacity-0 z-0"
+        }`}
+        data-slide-index={index}
+      >
+        <img
+          src={image}
+          alt={`Carousel slide ${index + 1}`}
+          class="w-full h-full object-cover"
+          loading={index === 0 ? "eager" : "lazy"}
+        />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
+      </div>
+    ))}
+  </div>
+
+  <!-- Navigation Arrows -->
+  <button
+    class="carousel-prev absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-white/90 dark:bg-[#1A1A1A]/90 hover:bg-white dark:hover:bg-[#1A1A1A] rounded-full p-2 shadow-lg transition-all duration-300 hover:scale-110 opacity-0 group-hover:opacity-100"
+    aria-label="Previous slide"
+  >
+    <span
+      class="material-symbols-outlined text-gray-800 dark:text-gray-200"
+      style="font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24"
+    >
+      chevron_left
+    </span>
+  </button>
+
+  <button
+    class="carousel-next absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-white/90 dark:bg-[#1A1A1A]/90 hover:bg-white dark:hover:bg-[#1A1A1A] rounded-full p-2 shadow-lg transition-all duration-300 hover:scale-110 opacity-0 group-hover:opacity-100"
+    aria-label="Next slide"
+  >
+    <span
+      class="material-symbols-outlined text-gray-800 dark:text-gray-200"
+      style="font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24"
+    >
+      chevron_right
+    </span>
+  </button>
+
+  <!-- Dot Indicators -->
+  {images.length > 1 && (
+    <div class="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 flex gap-2">
+      {images.map((_, index) => (
+        <button
+          class={`carousel-dot w-2 h-2 rounded-full transition-all duration-300 ${
+            index === 0
+              ? "bg-white w-8"
+              : "bg-white/50 hover:bg-white/75"
+          }`}
+          data-slide-index={index}
+          aria-label={`Go to slide ${index + 1}`}
+        ></button>
+      ))}
+    </div>
+  )}
+</div>
+
+<script is:inline define:vars={{ carouselId, autoplay, interval }}>
+  (function() {
+    const carousel = document.getElementById(carouselId);
+    if (!carousel) return;
+
+    const slides = carousel.querySelectorAll(".carousel-slide");
+    const prevBtn = carousel.querySelector(".carousel-prev");
+    const nextBtn = carousel.querySelector(".carousel-next");
+    const dots = carousel.querySelectorAll(".carousel-dot");
+
+    const shouldAutoplay = carousel.dataset.autoplay === "true";
+    const autoplayIntervalMs = parseInt(carousel.dataset.interval || "5000", 10);
+
+    let currentIndex = 0;
+    let autoplayInterval = null;
+
+    const showSlide = (index) => {
+      slides.forEach((slide, i) => {
+        if (i === index) {
+          slide.classList.remove("opacity-0", "z-0");
+          slide.classList.add("opacity-100", "z-10");
+        } else {
+          slide.classList.remove("opacity-100", "z-10");
+          slide.classList.add("opacity-0", "z-0");
+        }
+      });
+
+      dots.forEach((dot, i) => {
+        if (i === index) {
+          dot.classList.add("bg-white", "w-8");
+          dot.classList.remove("bg-white/50");
+        } else {
+          dot.classList.remove("bg-white", "w-8");
+          dot.classList.add("bg-white/50");
+        }
+      });
+
+      currentIndex = index;
+    };
+
+    const nextSlide = () => {
+      const nextIndex = (currentIndex + 1) % slides.length;
+      showSlide(nextIndex);
+    };
+
+    const prevSlide = () => {
+      const prevIndex = (currentIndex - 1 + slides.length) % slides.length;
+      showSlide(prevIndex);
+    };
+
+    const startAutoplay = () => {
+      if (!shouldAutoplay) return;
+      autoplayInterval = setInterval(nextSlide, autoplayIntervalMs);
+    };
+
+    const stopAutoplay = () => {
+      if (autoplayInterval) {
+        clearInterval(autoplayInterval);
+        autoplayInterval = null;
+      }
+    };
+
+    if (nextBtn) {
+      nextBtn.addEventListener("click", () => {
+        nextSlide();
+        stopAutoplay();
+        startAutoplay();
+      });
+    }
+
+    if (prevBtn) {
+      prevBtn.addEventListener("click", () => {
+        prevSlide();
+        stopAutoplay();
+        startAutoplay();
+      });
+    }
+
+    dots.forEach((dot, index) => {
+      dot.addEventListener("click", () => {
+        showSlide(index);
+        stopAutoplay();
+        startAutoplay();
+      });
+    });
+
+    carousel.addEventListener("mouseenter", stopAutoplay);
+    carousel.addEventListener("mouseleave", startAutoplay);
+
+    startAutoplay();
+  })();
+</script>
+
+

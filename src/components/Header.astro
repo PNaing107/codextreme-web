@@ -6,28 +6,28 @@ const linkClasses =
 
 const navLinks = [
   {
-    href: "/",
+    href: BASE_URL === "/" ? "/" : BASE_URL,
     label: "Home",
     icon: "home",
     iconColor: "text-[var(--intotri-pink)]",
     hoverText: "hover:text-[var(--intotri-pink)]",
   },
   {
-    href: "/events",
+    href: `${BASE_URL}events`,
     label: "Events",
     icon: "event",
     iconColor: "text-[var(--intotri-pink)]",
     hoverText: "hover:text-[var(--intotri-pink)]",
   },
   {
-    href: "/about",
+    href: `${BASE_URL}about`,
     label: "About Us",
     icon: "info",
     iconColor: "text-[var(--intotri-pink)]",
     hoverText: "hover:text-[var(--intotri-pink)]",
   },
   {
-    href: "/partners",
+    href: `${BASE_URL}partners`,
     label: "Partners",
     icon: "handshake",
     iconColor: "text-[var(--intotri-pink)]",
@@ -41,7 +41,7 @@ const navLinks = [
 >
   <div class="container mx-auto flex justify-between items-center px-4 py-3">
     <a
-      href="/"
+      href={BASE_URL === "/" ? "/" : BASE_URL}
       class="flex items-center space-x-2 group"
     >
       <img

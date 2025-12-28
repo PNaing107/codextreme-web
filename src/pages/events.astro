@@ -5,25 +5,52 @@ import events from '../data/events.json';
 
 const BASE_URL = import.meta.env.BASE_URL;
 
-// Group events by month
+// Type definitions
 interface Event {
   title: string;
+  slug?: string;
   description: string;
   ageCategory: string;
   date: string;
   materialIcons: string[];
 }
 
-const groupedEvents = events.reduce((acc, event: Event) => {
-  const date = new Date(event.date);
+interface CombinedEvent {
+  senior: Event;
+  junior: Event;
+}
+
+type EventItem = Event | CombinedEvent;
+
+// Normalize events - convert all to a consistent structure
+const normalizedEvents: Array<{ type: 'single' | 'combined'; event: Event | CombinedEvent; date: string }> = events.map((item: any) => {
+  // Check if this is a combined event (has senior and junior properties)
+  if (item.senior && item.junior) {
+    return {
+      type: 'combined',
+      event: item as CombinedEvent,
+      date: item.senior.date // Use senior date for grouping
+    };
+  } else {
+    return {
+      type: 'single',
+      event: item as Event,
+      date: item.date
+    };
+  }
+});
+
+// Group events by month
+const groupedEvents = normalizedEvents.reduce((acc, item) => {
+  const date = new Date(item.date);
   const monthKey = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}`;
   
   if (!acc[monthKey]) {
     acc[monthKey] = [];
   }
-  acc[monthKey].push(event);
+  acc[monthKey].push(item);
   return acc;
-}, {} as Record<string, Event[]>);
+}, {} as Record<string, typeof normalizedEvents>);
 
 // Sort months chronologically
 const sortedMonths = Object.keys(groupedEvents).sort();
@@ -34,7 +61,6 @@ const formatMonthName = (monthKey: string): string => {
   const date = new Date(parseInt(year), parseInt(month) - 1, 1);
   return date.toLocaleDateString('en-GB', { month: 'long', year: 'numeric' });
 };
-
 ---
 
 <BaseLayout>
@@ -72,15 +98,121 @@ const formatMonthName = (monthKey: string): string => {
             {formatMonthName(monthKey)}
           </h3>
           <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-            {groupedEvents[monthKey].map((event: Event) => (
-              <Card
-                title={event.title}
-                description={event.description}
-                date={event.date}
-                borderColor={event.ageCategory === "Senior" ? "border-[var(--intotri-pink)]" : "border-[var(--intotri-blue)]"}
-                materialIcons={event.materialIcons}
-              />
-            ))}
+            {groupedEvents[monthKey].map((item, itemIndex) => {
+              if (item.type === 'single') {
+                const event = item.event as Event;
+                return (
+                  <Card
+                    title={event.title}
+                    description={event.description}
+                    date={event.date}
+                    borderColor={event.ageCategory === "Senior" ? "border-[var(--intotri-pink)]" : "border-[var(--intotri-blue)]"}
+                    materialIcons={event.materialIcons}
+                  />
+                );
+              } else {
+                const combinedEvent = item.event as CombinedEvent;
+                const uniqueId = `event-${monthKey}-${itemIndex}`;
+                return (
+                  <div
+                    class={`group relative bg-white dark:bg-[#1A1A1A] p-8 rounded-2xl border border-gray-200 dark:border-white/5 hover:border-gray-300 dark:hover:border-white/20 transition-all duration-500 hover:shadow-2xl hover:-translate-y-1 overflow-hidden h-full flex flex-col`}
+                  >
+                    <div
+                      class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-gray-50 to-transparent dark:from-white/5 dark:to-transparent pointer-events-none"
+                    >
+                    </div>
+
+                    <div class="relative z-10 flex-grow">
+                      {/* Toggle Button */}
+                      <div class="mb-6 flex items-center justify-end">
+                        <div class="flex items-center gap-2 bg-gray-100 dark:bg-white/10 rounded-lg p-1">
+                          <button
+                            type="button"
+                            class="toggle-btn-senior px-3 py-1.5 rounded-md text-sm font-medium transition-all duration-200 bg-[var(--intotri-pink)] text-white"
+                            data-event-id={uniqueId}
+                            data-view="senior"
+                          >
+                            Senior
+                          </button>
+                          <button
+                            type="button"
+                            class="toggle-btn-junior px-3 py-1.5 rounded-md text-sm font-medium transition-all duration-200 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
+                            data-event-id={uniqueId}
+                            data-view="junior"
+                          >
+                            Junior
+                          </button>
+                        </div>
+                      </div>
+
+                      {/* Senior Event Content */}
+                      <div class={`event-content-senior event-${monthKey}-${itemIndex}`} data-event-id={uniqueId}>
+                        {combinedEvent.senior.materialIcons.length > 0 && (
+                          <div class="mb-6 flex items-center justify-start gap-3">
+                            {combinedEvent.senior.materialIcons.map((iconName) => (
+                              <div
+                                class={`rounded-xl bg-gray-50 dark:bg-white/5 border border-gray-100 dark:border-white/10 p-2 flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}
+                                style="min-width:2.5rem; min-height:2.5rem;"
+                              >
+                                <span
+                                  class={`material-symbols-outlined text-[var(--intotri-pink)] ${combinedEvent.senior.materialIcons.length > 1 ? 'text-2xl' : 'text-3xl'}`}
+                                  style="font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24"
+                                >
+                                  {iconName}
+                                </span>
+                              </div>
+                            ))}
+                          </div>
+                        )}
+                        <h3
+                          class="text-xl font-bold mb-3 text-gray-900 dark:text-white group-hover:text-gray-700 dark:group-hover:text-white/90 transition-colors"
+                        >
+                          {combinedEvent.senior.title}
+                        </h3>
+                        <h4 class="text-sm text-[var(--intotri-pink)] leading-relaxed mb-3">
+                          {new Date(combinedEvent.senior.date).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}
+                        </h4>
+                        <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+                          {combinedEvent.senior.description}
+                        </p>
+                      </div>
+
+                      {/* Junior Event Content */}
+                      <div class={`event-content-junior event-${monthKey}-${itemIndex} hidden`} data-event-id={uniqueId}>
+                        {combinedEvent.junior.materialIcons.length > 0 && (
+                          <div class="mb-6 flex items-center justify-start gap-3">
+                            {combinedEvent.junior.materialIcons.map((iconName) => (
+                              <div
+                                class={`rounded-xl bg-gray-50 dark:bg-white/5 border border-gray-100 dark:border-white/10 p-2 flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}
+                                style="min-width:2.5rem; min-height:2.5rem;"
+                              >
+                                <span
+                                  class={`material-symbols-outlined text-[var(--intotri-blue)] ${combinedEvent.junior.materialIcons.length > 1 ? 'text-2xl' : 'text-3xl'}`}
+                                  style="font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24"
+                                >
+                                  {iconName}
+                                </span>
+                              </div>
+                            ))}
+                          </div>
+                        )}
+                        <h3
+                          class="text-xl font-bold mb-3 text-gray-900 dark:text-white group-hover:text-gray-700 dark:group-hover:text-white/90 transition-colors"
+                        >
+                          {combinedEvent.junior.title}
+                        </h3>
+                        <h4 class="text-sm text-[var(--intotri-blue)] leading-relaxed mb-3">
+                          {new Date(combinedEvent.junior.date).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}
+                        </h4>
+                        <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+                          {combinedEvent.junior.description}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                );
+              }
+            })}
           </div>
           {monthIndex < sortedMonths.length - 1 && (
             <hr class="border-gray-200 dark:border-white/10 mb-8" />
@@ -89,4 +221,48 @@ const formatMonthName = (monthKey: string): string => {
       ))}
     </div>
   </main>
+
+  <script>
+    // Toggle functionality for combined events
+    document.addEventListener('DOMContentLoaded', () => {
+      const toggleButtons = document.querySelectorAll('[data-view="senior"], [data-view="junior"]');
+      
+      toggleButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          const eventId = button.getAttribute('data-event-id');
+          const view = button.getAttribute('data-view');
+          
+          if (!eventId) return;
+          
+          // Find all content sections and buttons for this event
+          const seniorContent = document.querySelector(`.event-content-senior[data-event-id="${eventId}"]`);
+          const juniorContent = document.querySelector(`.event-content-junior[data-event-id="${eventId}"]`);
+          const seniorButton = document.querySelector(`.toggle-btn-senior[data-event-id="${eventId}"]`);
+          const juniorButton = document.querySelector(`.toggle-btn-junior[data-event-id="${eventId}"]`);
+          
+          if (view === 'senior') {
+            // Show senior, hide junior
+            seniorContent?.classList.remove('hidden');
+            juniorContent?.classList.add('hidden');
+            
+            // Update button styles
+            seniorButton?.classList.add('bg-[var(--intotri-pink)]', 'text-white');
+            seniorButton?.classList.remove('text-gray-600', 'dark:text-gray-400');
+            juniorButton?.classList.remove('bg-[var(--intotri-blue)]', 'text-white');
+            juniorButton?.classList.add('text-gray-600', 'dark:text-gray-400');
+          } else {
+            // Show junior, hide senior
+            seniorContent?.classList.add('hidden');
+            juniorContent?.classList.remove('hidden');
+            
+            // Update button styles
+            seniorButton?.classList.remove('bg-[var(--intotri-pink)]', 'text-white');
+            seniorButton?.classList.add('text-gray-600', 'dark:text-gray-400');
+            juniorButton?.classList.add('bg-[var(--intotri-blue)]', 'text-white');
+            juniorButton?.classList.remove('text-gray-600', 'dark:text-gray-400');
+          }
+        });
+      });
+    });
+  </script>
 </BaseLayout>

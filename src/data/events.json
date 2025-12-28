@@ -5,7 +5,8 @@
     "description": "10 mile multi-terrain running race starting and finishing in Helston",
     "ageCategory": "Senior",
     "date": "2026-03-08",
-    "materialIcons": ["sprint"]
+    "materialIcons": ["sprint"],
+    "eventLogo": "assets/event_logos/an-res-white.png"
   },
   {
     "title": "Falmouth Half Marathon | Cornish GP Race 5",
@@ -13,7 +14,8 @@
     "description": "Half marathon taking in views of Gyllyngvase, Swanpool and Maenporth beaches",
     "ageCategory": "Senior",
     "date": "2026-03-15",
-    "materialIcons": ["sprint"]
+    "materialIcons": ["sprint"],
+    "eventLogo": "assets/event_logos/run_falmouth.png"
   },
   {
     "title": "Wheal Jane Duathlon (New Event for 2026)",
@@ -21,7 +23,8 @@
     "description": "Duathlon with a closed road bike circuit and trail run around Wheal Jane",
     "ageCategory": "Senior",
     "date": "2026-03-22",
-    "materialIcons": ["sprint", "directions_bike", "sprint"]
+    "materialIcons": ["sprint", "directions_bike", "sprint"],
+    "eventLogo": "assets/event_logos/mole.png"
   },
   {
     "senior": {
@@ -30,7 +33,8 @@
       "description": "Cornwall's largest triathlon / aquabike event with distances ranging from super sprint to 70.3",
       "ageCategory": "Senior",
       "date": "2026-05-30",
-      "materialIcons": ["pool", "directions_bike", "sprint"]
+      "materialIcons": ["pool", "directions_bike", "sprint"],
+      "eventLogo": "assets/event_logos/mole.png"
     },
     "junior": {
       "title": "Kernow-kid",
@@ -38,7 +42,8 @@
       "description": "Scootathlon (5-8 year olds), Aquathlon (8-16 year olds)",
       "ageCategory": "Junior",
       "date": "2026-05-30",
-      "materialIcons": ["scooter", "child_care"]
+      "materialIcons": ["scooter", "child_care"],
+      "eventLogo": "assets/event_logos/mole.png"
     }
   },
   {
@@ -48,7 +53,8 @@
       "description": "Need to think of a description for this event",
       "ageCategory": "Senior",
       "date": "2026-07-12",
-      "materialIcons": ["pool", "directions_bike", "sprint"]
+      "materialIcons": ["pool", "directions_bike", "sprint"],
+      "eventLogo": "assets/event_logos/squirrel.png"
     },
     "junior": {
       "title": "Mini Squirrel",
@@ -56,7 +62,8 @@
       "description": "Micro Duathlon (5-8 year olds), Mini Tri (8-16 year olds)",
       "ageCategory": "Junior",
       "date": "2026-07-12",
-      "materialIcons": ["child_care"]
+      "materialIcons": ["child_care"],
+      "eventLogo": "assets/event_logos/squirrel.png"
     }
   },
   {
@@ -66,7 +73,8 @@
       "description": "Need to think of a description for this event",
       "ageCategory": "Senior",
       "date": "2026-08-23",
-      "materialIcons": ["pool", "directions_bike", "sprint"]
+      "materialIcons": ["pool", "directions_bike", "sprint"],
+      "eventLogo": "assets/event_logos/dragon.png"
     },
     "junior": {
       "title": "Mini Dragon",
@@ -74,7 +82,8 @@
       "description": "Micro Duathlon (5-8 year olds), Mini Tri (8-16 year olds)",
       "ageCategory": "Junior",
       "date": "2026-08-23",
-      "materialIcons": ["child_care"]
+      "materialIcons": ["child_care"],
+      "eventLogo": "assets/event_logos/dragon.png"
     }
   },
   {
@@ -84,7 +93,8 @@
       "description": "Need to think of a description for this event",
       "ageCategory": "Senior",
       "date": "2026-09-06",
-      "materialIcons": ["pool", "directions_bike", "sprint"]
+      "materialIcons": ["pool", "directions_bike", "sprint"],
+      "eventLogo": "assets/event_logos/shark.png"
     },
     "junior": {
       "title": "Mini Shark",
@@ -92,7 +102,8 @@
       "description": "Scootathlon (5-8 year olds), Mini Tri (8-16 year olds)",
       "ageCategory": "Junior",
       "date": "2026-09-06",
-      "materialIcons": ["scooter", "child_care"]
+      "materialIcons": ["scooter", "child_care"],
+      "eventLogo": "assets/event_logos/shark.png"
     }
   },
   {
@@ -102,7 +113,8 @@
       "description": "Need to think of a description for this event",
       "ageCategory": "Senior",
       "date": "2026-09-20",
-      "materialIcons": ["pool", "directions_bike", "sprint"]
+      "materialIcons": ["pool", "directions_bike", "sprint"],
+      "eventLogo": "assets/event_logos/seal.png"
     },
     "junior": {
       "title": "Mini Seal",
@@ -110,7 +122,8 @@
       "description": "Scootathlon (5-8 year olds), Mini Tri (8-16 year olds)",
       "ageCategory": "Junior",
       "date": "2026-09-20",
-      "materialIcons": ["scooter", "child_care"]
+      "materialIcons": ["scooter", "child_care"],
+      "eventLogo": "assets/event_logos/seal.png"
     }
   },
   {
@@ -120,7 +133,8 @@
       "description": "Need to think of a description for this event",
       "ageCategory": "Senior",
       "date": "2026-10-04",
-      "materialIcons": ["pool", "directions_bike", "sprint"]
+      "materialIcons": ["pool", "directions_bike", "sprint"],
+      "eventLogo": "assets/event_logos/seal.png"
     },
     "junior": {
       "title": "Selsey Junior Triathlon",
@@ -128,7 +142,8 @@
       "description": "Scootathlon (5-8 year olds), Mini Tri (8-16 year olds)",
       "ageCategory": "Junior",
       "date": "2026-10-04",
-      "materialIcons": ["scooter", "child_care"]
+      "materialIcons": ["scooter", "child_care"],
+      "eventLogo": "assets/event_logos/seal.png"
     }
   }
 ]

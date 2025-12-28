@@ -6,9 +6,10 @@ interface Props {
   borderColor: string;
   icons?: string[];
   materialIcons?: string[];
+  eventLogo?: string;
 }
 
-const { title, description, date, borderColor, icons = [], materialIcons = [] } = Astro.props;
+const { title, description, date, borderColor, icons = [], materialIcons = [], eventLogo } = Astro.props;
 
 const colorClass = borderColor.replace("border-", "text-");
 ---
@@ -76,6 +77,17 @@ const colorClass = borderColor.replace("border-", "text-");
       <h4 class={`text-sm ${colorClass} leading-relaxed mb-3`}>
         {new Date(date).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}
       </h4>
+    )}
+
+    {eventLogo && (
+      <div class="mb-3 bg-transparent">
+        <img
+          src={`/${eventLogo}`}
+          alt={`${title} logo`}
+          class="max-w-full h-auto"
+          style="background: transparent;"
+        />
+      </div>
     )}
 
     <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">

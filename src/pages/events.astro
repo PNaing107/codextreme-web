@@ -122,9 +122,9 @@ const formatMonthName = (monthKey: string): string => {
                     >
                     </div>
 
-                    <div class="relative z-10 flex-grow">
+                    <div class="relative z-10 flex-grow flex flex-col">
                       {/* Toggle Button */}
-                      <div class="mb-6 flex items-center justify-end">
+                      <div class="mt-6 mb-0 md:mt-0 md:mb-6 flex items-center justify-center md:justify-end order-last md:order-first">
                         <div class="flex items-center gap-2 bg-gray-100 dark:bg-white/10 rounded-lg p-1">
                           <button
                             type="button"
@@ -146,7 +146,7 @@ const formatMonthName = (monthKey: string): string => {
                       </div>
 
                       {/* Senior Event Content */}
-                      <div class={`event-content-senior event-${monthKey}-${itemIndex}`} data-event-id={uniqueId}>
+                      <div class={`event-content-senior event-${monthKey}-${itemIndex} order-first md:order-2`} data-event-id={uniqueId}>
                         {combinedEvent.senior.materialIcons.length > 0 && (
                           <div class="mb-6 flex items-center justify-start gap-3">
                             {combinedEvent.senior.materialIcons.map((iconName) => (
@@ -178,7 +178,7 @@ const formatMonthName = (monthKey: string): string => {
                       </div>
 
                       {/* Junior Event Content */}
-                      <div class={`event-content-junior event-${monthKey}-${itemIndex} hidden`} data-event-id={uniqueId}>
+                      <div class={`event-content-junior event-${monthKey}-${itemIndex} hidden order-2 md:order-3`} data-event-id={uniqueId}>
                         {combinedEvent.junior.materialIcons.length > 0 && (
                           <div class="mb-6 flex items-center justify-start gap-3">
                             {combinedEvent.junior.materialIcons.map((iconName) => (

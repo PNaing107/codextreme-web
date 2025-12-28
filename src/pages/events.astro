@@ -177,7 +177,7 @@ const formatMonthName = (monthKey: string): string => {
                         {combinedEvent.senior.eventLogo && (
                           <div class="mb-3 bg-transparent">
                             <img
-                              src={`/${combinedEvent.senior.eventLogo}`}
+                              src={`${BASE_URL}${combinedEvent.senior.eventLogo}`}
                               alt={`${combinedEvent.senior.title} logo`}
                               class="max-w-full h-auto"
                               style="background: transparent;"
@@ -219,7 +219,7 @@ const formatMonthName = (monthKey: string): string => {
                         {combinedEvent.junior.eventLogo && (
                           <div class="mb-3 bg-transparent">
                             <img
-                              src={`/${combinedEvent.junior.eventLogo}`}
+                              src={`${BASE_URL}${combinedEvent.junior.eventLogo}`}
                               alt={`${combinedEvent.junior.title} logo`}
                               class="max-w-full h-auto"
                               style="background: transparent;"

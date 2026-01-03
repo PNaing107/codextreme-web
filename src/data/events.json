@@ -28,13 +28,33 @@
   },
   {
     "senior": {
+      "title": "Wadebridge Tri | The Camel",
+      "slug": "wadebridge",
+      "description": "Need to think of a description for this event",
+      "ageCategory": "Senior",
+      "date": "2026-04-26",
+      "materialIcons": ["pool", "directions_bike", "sprint"],
+      "eventLogo": "assets/event_logos/camel_blue.png"
+    },
+    "junior": {
+      "title": "Mini Camel",
+      "slug": "mini-camel",
+      "description": "Scootathlon (5-8 year olds), Mini Tri (8-16 year olds)",
+      "ageCategory": "Junior",
+      "date": "2026-04-26",
+      "materialIcons": ["scooter", "child_care"],
+      "eventLogo": "assets/event_logos/camel_blue.png"
+    }
+  },
+  {
+    "senior": {
       "title": "Marazion Tri | The Kernowman",
       "slug": "kernowman",
       "description": "Cornwall's largest triathlon / aquabike event with distances ranging from super sprint to 70.3",
       "ageCategory": "Senior",
       "date": "2026-05-30",
       "materialIcons": ["pool", "directions_bike", "sprint"],
-      "eventLogo": "assets/event_logos/mole.png"
+      "eventLogo": "assets/event_logos/kernowman.png"
     },
     "junior": {
       "title": "Kernow-kid",
@@ -43,7 +63,7 @@
       "ageCategory": "Junior",
       "date": "2026-05-30",
       "materialIcons": ["scooter", "child_care"],
-      "eventLogo": "assets/event_logos/mole.png"
+      "eventLogo": "assets/event_logos/kernowman.png"
     }
   },
   {
@@ -54,7 +74,7 @@
       "ageCategory": "Senior",
       "date": "2026-07-12",
       "materialIcons": ["pool", "directions_bike", "sprint"],
-      "eventLogo": "assets/event_logos/squirrel.png"
+      "eventLogo": "assets/event_logos/squirrel_blue.png"
     },
     "junior": {
       "title": "Mini Squirrel",
@@ -63,7 +83,7 @@
       "ageCategory": "Junior",
       "date": "2026-07-12",
       "materialIcons": ["child_care"],
-      "eventLogo": "assets/event_logos/squirrel.png"
+      "eventLogo": "assets/event_logos/squirrel_blue.png"
     }
   },
   {
@@ -74,7 +94,7 @@
       "ageCategory": "Senior",
       "date": "2026-08-23",
       "materialIcons": ["pool", "directions_bike", "sprint"],
-      "eventLogo": "assets/event_logos/dragon.png"
+      "eventLogo": "assets/event_logos/dragon_blue.png"
     },
     "junior": {
       "title": "Mini Dragon",
@@ -83,7 +103,7 @@
       "ageCategory": "Junior",
       "date": "2026-08-23",
       "materialIcons": ["child_care"],
-      "eventLogo": "assets/event_logos/dragon.png"
+      "eventLogo": "assets/event_logos/dragon_blue.png"
     }
   },
   {
@@ -94,7 +114,7 @@
       "ageCategory": "Senior",
       "date": "2026-09-06",
       "materialIcons": ["pool", "directions_bike", "sprint"],
-      "eventLogo": "assets/event_logos/shark.png"
+      "eventLogo": "assets/event_logos/shark_blue.png"
     },
     "junior": {
       "title": "Mini Shark",
@@ -103,7 +123,7 @@
       "ageCategory": "Junior",
       "date": "2026-09-06",
       "materialIcons": ["scooter", "child_care"],
-      "eventLogo": "assets/event_logos/shark.png"
+      "eventLogo": "assets/event_logos/shark_blue.png"
     }
   },
   {
@@ -114,7 +134,7 @@
       "ageCategory": "Senior",
       "date": "2026-09-20",
       "materialIcons": ["pool", "directions_bike", "sprint"],
-      "eventLogo": "assets/event_logos/seal.png"
+      "eventLogo": "assets/event_logos/seal_blue.png"
     },
     "junior": {
       "title": "Mini Seal",
@@ -123,7 +143,7 @@
       "ageCategory": "Junior",
       "date": "2026-09-20",
       "materialIcons": ["scooter", "child_care"],
-      "eventLogo": "assets/event_logos/seal.png"
+      "eventLogo": "assets/event_logos/seal_blue.png"
     }
   },
   {
@@ -134,7 +154,7 @@
       "ageCategory": "Senior",
       "date": "2026-10-04",
       "materialIcons": ["pool", "directions_bike", "sprint"],
-      "eventLogo": "assets/event_logos/seal.png"
+      "eventLogo": "assets/event_logos/seal_blue.png"
     },
     "junior": {
       "title": "Selsey Junior Triathlon",
@@ -143,7 +163,7 @@
       "ageCategory": "Junior",
       "date": "2026-10-04",
       "materialIcons": ["scooter", "child_care"],
-      "eventLogo": "assets/event_logos/seal.png"
+      "eventLogo": "assets/event_logos/seal_blue.png"
     }
   }
 ]

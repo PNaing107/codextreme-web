@@ -7,9 +7,10 @@ interface Props {
   icons?: string[];
   materialIcons?: string[];
   eventLogo?: string;
+  eventBanner?: string;
 }
 
-const { title, description, date, borderColor, icons = [], materialIcons = [], eventLogo } = Astro.props;
+const { title, description, date, borderColor, icons = [], materialIcons = [], eventLogo, eventBanner } = Astro.props;
 const BASE_URL = import.meta.env.BASE_URL;
 
 const colorClass = borderColor.replace("border-", "text-");
@@ -80,11 +81,11 @@ const colorClass = borderColor.replace("border-", "text-");
       </h4>
     )}
 
-    {eventLogo && (
+    {eventBanner && (
       <div class="mb-3 bg-transparent">
         <img
-          src={`${BASE_URL}${eventLogo}`}
-          alt={`${title} logo`}
+          src={`${BASE_URL}${eventBanner}`}
+          alt={`${title} banner`}
           class="max-w-full h-auto"
           style="background: transparent;"
         />

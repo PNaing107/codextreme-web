@@ -6,7 +6,8 @@
     "ageCategory": "Senior",
     "date": "2026-03-08",
     "materialIcons": ["sprint"],
-    "eventLogo": "assets/event_logos/an-res-white.png"
+    "eventLogo": "assets/event_logos/an-res-white.png",
+    "eventBanner": "assets/event_logos/an-res-white.png"
   },
   {
     "title": "Falmouth Half Marathon | Cornish GP Race 5",
@@ -15,7 +16,8 @@
     "ageCategory": "Senior",
     "date": "2026-03-15",
     "materialIcons": ["sprint"],
-    "eventLogo": "assets/event_logos/run_falmouth.png"
+    "eventLogo": "assets/event_logos/run_falmouth.png",
+    "eventBanner": "assets/event_photos/falmouth-half-start.jpg"
   },
   {
     "title": "Wheal Jane Duathlon (New Event for 2026)",
@@ -24,7 +26,8 @@
     "ageCategory": "Senior",
     "date": "2026-03-22",
     "materialIcons": ["sprint", "directions_bike", "sprint"],
-    "eventLogo": "assets/event_logos/mole.png"
+    "eventLogo": "assets/event_logos/mole.png",
+    "eventBanner": "assets/event_photos/wheal-jane-arial.jpg"
   },
   {
     "senior": {
@@ -34,7 +37,8 @@
       "ageCategory": "Senior",
       "date": "2026-04-26",
       "materialIcons": ["pool", "directions_bike", "sprint"],
-      "eventLogo": "assets/event_logos/camel_blue.png"
+      "eventLogo": "assets/event_logos/camel_blue.png",
+      "eventBanner": "assets/event_photos/wadebridge-senior-mobile.png"
     },
     "junior": {
       "title": "Mini Camel",
@@ -43,7 +47,8 @@
       "ageCategory": "Junior",
       "date": "2026-04-26",
       "materialIcons": ["scooter", "child_care"],
-      "eventLogo": "assets/event_logos/camel_blue.png"
+      "eventLogo": "assets/event_logos/camel_blue.png",
+      "eventBanner": "assets/event_photos/wadebridge-junior-mobile.jpg"
     }
   },
   {
@@ -54,7 +59,8 @@
       "ageCategory": "Senior",
       "date": "2026-05-30",
       "materialIcons": ["pool", "directions_bike", "sprint"],
-      "eventLogo": "assets/event_logos/kernowman.png"
+      "eventLogo": "assets/event_logos/kernowman.png",
+      "eventBanner": "assets/event_photos/kernowman-mobile.png"
     },
     "junior": {
       "title": "Kernow-kid",
@@ -63,7 +69,8 @@
       "ageCategory": "Junior",
       "date": "2026-05-30",
       "materialIcons": ["scooter", "child_care"],
-      "eventLogo": "assets/event_logos/kernowman.png"
+      "eventLogo": "assets/event_logos/kernowman.png",
+      "eventBanner": "assets/event_photos/kernowman-mobile.png"
     }
   },
   {
@@ -74,7 +81,8 @@
       "ageCategory": "Senior",
       "date": "2026-07-12",
       "materialIcons": ["pool", "directions_bike", "sprint"],
-      "eventLogo": "assets/event_logos/squirrel_blue.png"
+      "eventLogo": "assets/event_logos/squirrel_blue.png",
+      "eventBanner": "assets/event_photos/tavistock-mobile.png"
     },
     "junior": {
       "title": "Mini Squirrel",
@@ -83,7 +91,8 @@
       "ageCategory": "Junior",
       "date": "2026-07-12",
       "materialIcons": ["child_care"],
-      "eventLogo": "assets/event_logos/squirrel_blue.png"
+      "eventLogo": "assets/event_logos/squirrel_blue.png",
+      "eventBanner": "assets/event_photos/tavistock-junior-mobile.png"
     }
   },
   {
@@ -94,7 +103,8 @@
       "ageCategory": "Senior",
       "date": "2026-08-23",
       "materialIcons": ["pool", "directions_bike", "sprint"],
-      "eventLogo": "assets/event_logos/dragon_blue.png"
+      "eventLogo": "assets/event_logos/dragon_blue.png",
+      "eventBanner": "assets/event_photos/bodmin-senior-mobile.jpg"
     },
     "junior": {
       "title": "Mini Dragon",
@@ -103,7 +113,8 @@
       "ageCategory": "Junior",
       "date": "2026-08-23",
       "materialIcons": ["child_care"],
-      "eventLogo": "assets/event_logos/dragon_blue.png"
+      "eventLogo": "assets/event_logos/dragon_blue.png",
+      "eventBanner": "assets/event_photos/bodmin-junior-mobile.png"
     }
   },
   {
@@ -114,7 +125,8 @@
       "ageCategory": "Senior",
       "date": "2026-09-06",
       "materialIcons": ["pool", "directions_bike", "sprint"],
-      "eventLogo": "assets/event_logos/shark_blue.png"
+      "eventLogo": "assets/event_logos/shark_blue.png",
+      "eventBanner": "assets/event_photos/perranporth-mobile.png"
     },
     "junior": {
       "title": "Mini Shark",
@@ -123,7 +135,8 @@
       "ageCategory": "Junior",
       "date": "2026-09-06",
       "materialIcons": ["scooter", "child_care"],
-      "eventLogo": "assets/event_logos/shark_blue.png"
+      "eventLogo": "assets/event_logos/shark_blue.png",
+      "eventBanner": "assets/event_photos/perranporth-mobile.png"
     }
   },
   {
@@ -134,7 +147,8 @@
       "ageCategory": "Senior",
       "date": "2026-09-20",
       "materialIcons": ["pool", "directions_bike", "sprint"],
-      "eventLogo": "assets/event_logos/seal_blue.png"
+      "eventLogo": "assets/event_logos/seal_blue.png",
+      "eventBanner": "assets/event_photos/gylly-mobile-photo.png"
     },
     "junior": {
       "title": "Mini Seal",
@@ -143,7 +157,8 @@
       "ageCategory": "Junior",
       "date": "2026-09-20",
       "materialIcons": ["scooter", "child_care"],
-      "eventLogo": "assets/event_logos/seal_blue.png"
+      "eventLogo": "assets/event_logos/seal_blue.png",
+      "eventBanner": "assets/event_photos/falmouth-junior.jpg"
     }
   },
   {
@@ -154,7 +169,8 @@
       "ageCategory": "Senior",
       "date": "2026-10-04",
       "materialIcons": ["pool", "directions_bike", "sprint"],
-      "eventLogo": "assets/event_logos/seal_blue.png"
+      "eventLogo": "assets/event_logos/seal_blue.png",
+      "eventBanner": "assets/event_photos/selsey-mobile.png"
     },
     "junior": {
       "title": "Selsey Junior Triathlon",
@@ -163,7 +179,8 @@
       "ageCategory": "Junior",
       "date": "2026-10-04",
       "materialIcons": ["scooter", "child_care"],
-      "eventLogo": "assets/event_logos/seal_blue.png"
+      "eventLogo": "assets/event_logos/seal_blue.png",
+      "eventBanner": "assets/event_photos/selsey-mobile.png"
     }
   }
 ]

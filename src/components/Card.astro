@@ -76,7 +76,7 @@ const colorClass = borderColor.replace("border-", "text-");
     </h3>
 
     {date && (
-      <h4 class={`text-lg ${colorClass} leading-relaxed mb-3`}>
+      <h4 class={`text-lg font-bold ${colorClass} leading-relaxed mb-3`}>
         {new Date(date).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}
       </h4>
     )}

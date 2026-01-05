@@ -173,7 +173,7 @@ const formatMonthName = (monthKey: string): string => {
                         >
                           {combinedEvent.senior.title}
                         </h3>
-                        <h4 class="text-sm text-[var(--intotri-pink)] leading-relaxed mb-3">
+                        <h4 class="text-lg font-bold text-[var(--intotri-pink)] leading-relaxed mb-3">
                           {new Date(combinedEvent.senior.date).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}
                         </h4>
                         {combinedEvent.senior.eventBanner && (
@@ -215,7 +215,7 @@ const formatMonthName = (monthKey: string): string => {
                         >
                           {combinedEvent.junior.title}
                         </h3>
-                        <h4 class="text-sm text-[var(--intotri-blue)] leading-relaxed mb-3">
+                        <h4 class="text-lg font-bold text-[var(--intotri-blue)] leading-relaxed mb-3">
                           {new Date(combinedEvent.junior.date).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}
                         </h4>
                         {combinedEvent.junior.eventBanner && (
